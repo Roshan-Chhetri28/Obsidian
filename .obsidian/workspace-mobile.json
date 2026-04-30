@@ -11,10 +11,14 @@
             "id": "06a14b58acfd8602",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Laws.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Laws"
             }
           }
         ]
@@ -175,13 +179,13 @@
   },
   "active": "06a14b58acfd8602",
   "lastOpenFiles": [
+    "The Vanity metrics and The Availibility Bias 1.md",
+    "Laws.md",
     "The Vanity metrics and The Availibility Bias.md",
     "Lean Startup Concepts.md",
-    "The Vanity metrics and The Availibility Bias 1.md",
     "Never Miss twice.md",
     "We can win.md",
     "Butterfly Effect.md",
-    "Laws.md",
     "this is a test file.md",
     "Untitled.canvas"
   ]

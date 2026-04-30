@@ -1,6 +1,4 @@
-GoodHart's Law: 
-
-"When a measurement becomes a target, it ceases to be a good measure"
+![[The Vanity metrics and The Availibility Bias 1]]
 
 Occam's Razor:
 
