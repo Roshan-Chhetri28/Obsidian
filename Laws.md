@@ -1,4 +1,4 @@
-![[The Vanity metrics and The Availibility Bias 1]]
+![[The Vanity metrics and The Availibility Bias]]
 
 Occam's Razor:
 
