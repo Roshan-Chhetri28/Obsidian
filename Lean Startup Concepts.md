@@ -3,7 +3,7 @@
 
 2. Learning Milestones Specific events that prove a business assumption (Leap of Faith) is true, such as a user successfully using a new feature for the first time.
 
-3. ![[The Vanity metrics and The Availibility Bias 1]] Numbers like "Total Signups" that look good on paper but don't tell you if the product is actually successful.
+3. ![[The Vanity metrics and The Availibility Bias]] Numbers like "Total Signups" that look good on paper but don't tell you if the product is actually successful.
 
 4. Actionable Metrics Data that tells you exactly what to do next. For example, tracking if users who use a specific feature are more likely to return to the app.
 Examples
