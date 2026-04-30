@@ -1,0 +1,3 @@
+Not trying to be politically aligned but small miss of a bullet, small mistake of assassination is leading world towards WWIII, 500% tarrif for India, International tanker getting hijacked, a president being kidnapped.
+This example shows how small changes leads to drastic change it might be positive and in our example its totally opposite.
+This shows how a simple choices can lead to vastly different future.

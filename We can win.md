@@ -1,0 +1,2 @@
+This is the Tree of Life, representing every species currently existing on Earth.
+The image illustrates the incredibly low probability of Homo sapiens evolving from LUCA (the Last Universal Common Ancestor) to eventually dominate the planet. If I were to estimate the probability, it would look something like f(P(x)) = \lim_{x \to 0} P(x). Based on this, it seems the odds of our species "winning" are even slimmer than the odds of any single human being born.
