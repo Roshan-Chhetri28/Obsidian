@@ -34,7 +34,7 @@
 	   Without touching any code, figure out required sample size.
 		How do we figure sample size?
 			→ Users who downloaded the app (through ads): (say) 4000
-			→ Users who visited the course: (say) 3800
-			→ User who fired up payment: 400
-			→ User who paid: 40
+			→ Users who visited the course: (say) 3800 (5% drop)
+			→ User who fired up payment: 400 (89% drop)
+			→ User who paid: 40 (90% drop)
 			
