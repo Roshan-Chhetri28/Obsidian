@@ -18,7 +18,9 @@
 	Pick a primary metric, the one that decides the winner and pair it along with a Guardrail metric.
 	1. Guardrail metric: Things whose performance shouldn't degrade. Even if the primary metric improves but the guardrail fails the variant is rejected.
 		example: ```Primary: Purchase conversion rate → did they buy? Guardrail: D7 retention → did they come back after buying? Downstream: Course completion rate → did they actually use what they bought?```
-	If conversion goes up but retention crashes, you haven't won — you've just made it easier for the wrong users to buy.
+		
+	2. ```Primary metric: Purchase conversion rate → did they complete payment? → this decides the winner Guardrail metrics: D7 retention → did they come back after buying? → if this drops, variant is rejected even if primary won Course completion rate → did they actually use what they bought? → ensures we're not attracting wrong users North Star: Weekly active study sessions → number of users completing at least one study session per week → the "so what?" check — if primary improves but North Star doesn't move, something is wrong```
+
 4. Define/Calculate time to run the test: 
 	   Without touching any code, figure out required sample size
 	   
