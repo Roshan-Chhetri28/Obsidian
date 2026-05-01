@@ -39,21 +39,12 @@
 				→ User who fired up payment: 400 (89% drop)
 				→ User who paid: 40 (90% drop)
 				- Calculate base line:
-$$
-					Baseline = 400/3800 = 10.5%
-$$
-				- Decide MDE (Minimum Detectable Effort): 
-$$
-					current: 
-					3800 users/day ×10% 
-					= 400 purchases/day
-$$$$
-After 2% 
-: 3800×12%
-=456 purchase/day
-$$
-				- Extra purchase/day : 56
-				- Extra purchase/year: 20,440
+				 $Baseline = 400/3800 = 10.5$
+				- Decide MDE (Minimum Detectable Effort):
+				- current:  $3800 \text{ users/day} ×10\% = 400 \text{ purchases/day}$
+				-After 2%: $3800×12\%=456 \text{ purchase/day}$
+				-Extra purchase/day : 56
+				-Extra purchase/year: 20,440
 				- At ₹499/course: ₹1,01,99,560 extra revenue/year
 				- Baseline: 10%
 				-MDE: 2%
@@ -61,37 +52,30 @@ $$
 				-Significance level: 5% (default)
 				-use [Evan Miller's](https://www.evanmiller.org/ab-testing/sample-size.html) calculator 
 				-which gives us 3,623
+	
 5. Build the variant: 
 	1. make one change only
 		-  The "Credit" Problem
-			- If you change two things at once, you can't give "credit" to the winner.
-			- Imagine you're coaching a football team. You bring in a new **Striker** and a new **Goalie** at the same time. The team starts winning.
-				--  Was it the Striker scoring more goals?
-				-- Was it the Goalie blocking more shots?
-				--If you don't know, you won't know how to improve the team next time.
-		
+			- ==If you change two things at once, you can't give "credit" to the winner.
+			- Imagine you're coaching a football team. You bring in a new Striker and a new  Goalie at the same time. The team starts winning.
+				- Was it the Striker scoring more goals?
+				- Was it the Goalie blocking more shots?
+				- If you don't know, you won't know how to improve the team next time.
+			
 		- The "Canceling Out" Effect
-			- This is the most dangerous part of changing multiple things. Sometimes, one change is **great** and the other is **terrible**, and they cancel each other out.
-			- Change A (Color):** Users hate it ($-5\%$ sales).
-			- Change B (Copy):** Users love it ($+5\%$ sales).
-    
-- **Total Result:** $0\%$ change.
-    
-
-You look at the data and think, "Well, that was a waste of time, nothing happened." In reality, you found a great new headline, but you killed it by pairing it with an ugly color. You just threw away a $+5\%$ win because you didn't test them separately.
-
----
-
-### 3. The "Scientific Method" Approach
-
-For your app specifically, you want to build a "Playbook" of what works for your users.
-
-- **Test 1:** Change the **Color**. Result: Green is better than Red. (Now you keep Green).
-    
-- **Test 2:** Change the **Text**. Result: "Start Learning" is better than "Buy Now." (Now you use that).
-    
-
-By doing it one by one, you are building a "stack" of confirmed wins.
-
-> **Rule of Thumb:** If you want to test a whole new "look and feel," call it a "Layout Test" and change the whole screen. But if you are trying to optimize, change **one thing at a time** so you can be $100\%$ sure why the needle moved.
-
+			This is the most dangerous part of changing multiple things. Sometimes, one change is great and the other is terrible, and they cancel each other out.
+			Change A (Color): Users hate it (-5\% sales).
+			Change B (Copy):Users love it (+5\% sales).
+			Total Result: 0\% change.
+			You look at the data and think, "Well, that was a waste of time, nothing happened." In reality, you found a great new headline, but you killed it by pairing it with an ugly color. You just threw away a +5\% win because you didn't test them separately.
+			
+		- The "Scientific Method" Approach
+			- For your app specifically, you want to build a "Playbook" of what works for your users.
+			- Test 1: Change the Color. Result: Green is better than Red. (Now you keep Green).
+		    - Test 2: Change the Text. Result: "Start Learning" is better than "Buy Now." (Now you use that).
+		    - By doing it one by one, you are building a "stack" of confirmed wins.
+		    - Rule of Thumb: 
+			    - *If you want to test a whole new "look and feel," call it a "Layout Test" and change the whole screen. But if you are trying to optimize, change one thing at a time so you can be 100\% sure why the needle moved.*
+	- A: the control group
+	- B: variant
+6. 
