@@ -1,6 +1,5 @@
 1. **Identify the Problem:** 
 		Start with clear Problem
-	
 	1. Find where is highest drop-offs are
 		example:
 		 Landing Page → Sign Up → Onboarding → First Action → Retention
@@ -43,16 +42,16 @@
 				- Decide MDE (Minimum Detectable Effort):
 				- current:  $3800 \text{ users/day} ×10\% = 400 \text{ purchases/day}$
 				-After 2%: $3800×12\%=456 \text{ purchase/day}$
-				-Extra purchase/day : 56
-				-Extra purchase/year: 20,440
-				- At ₹499/course: ₹1,01,99,560 extra revenue/year
-				- Baseline: 10%
-				-MDE: 2%
-				-Statistical power:80% (default)
-				-Significance level: 5% (default)
-				-use [Evan Miller's](https://www.evanmiller.org/ab-testing/sample-size.html) calculator 
-				-which gives us 3,623
-	
+				-$Extra purchase/day : 56$
+				-$Extra purchase/year: 20,440$
+					- At $₹499/course: ₹1,01,99,560 extra revenue/year$
+					- Baseline: 10%
+					-MDE: 2%
+					-Statistical power:80% (default)
+					-Significance level: 5% (default)
+					-use [Evan Miller's](https://www.evanmiller.org/ab-testing/sample-size.html) calculator 
+				-which gives us 3,623 users per variation
+				- RunTime 7346/
 5. Build the variant: 
 	1. make one change only
 		-  The "Credit" Problem
@@ -76,6 +75,23 @@
 		    - By doing it one by one, you are building a "stack" of confirmed wins.
 		    - Rule of Thumb: 
 			    - *If you want to test a whole new "look and feel," call it a "Layout Test" and change the whole screen. But if you are trying to optimize, change one thing at a time so you can be 100\% sure why the needle moved.*
-	- A: the control group
-	- B: variant
-6. 
+		- A: the control group
+		- B: variant
+6. Set Up the Split
+	1. You add a feature flag in your backend:
+		```js
+		// Assign variant based on user ID - consistent across sessions
+const variant = userId % 2 === 0 ? 'control' : 'variant'
+
+// Fire event so PostHog knows which variant this user saw
+posthog.capture('experiment_assigned', {
+  experiment: 'buy_button_position',
+  variant: variant
+})
+		```
+7. Run the Test:
+	 - You set a reminder for **24 days later**
+	- You resist the urge to check results on day 5 even though B looks like it's winning
+	- You don't make any other changes to the course detail screen during this period
+8. Sanity Check Before Reading
+	1. 

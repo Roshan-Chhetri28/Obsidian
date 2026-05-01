@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "df501a1f9783ded8",
+        "id": "e9b2b32bf1ac8786",
         "type": "tabs",
         "children": [
           {
-            "id": "47121b4787bb24f5",
+            "id": "37e2a6be456eb130",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -164,6 +164,16 @@
               "icon": "lucide-list",
               "title": "Outline of test"
             }
+          },
+          {
+            "id": "7dad3b9892da26bb",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
           }
         ]
       }
@@ -185,11 +195,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "47121b4787bb24f5",
+  "active": "37e2a6be456eb130",
   "lastOpenFiles": [
-    "Untitled.canvas",
     "00-Inbox/Untitled.base",
+    "05-Daily/2026-05-01.md",
     "00-Inbox/A-B testing.md",
+    "Untitled.canvas",
     "99-Attachments",
     "05-Daily",
     "04-Archives",
