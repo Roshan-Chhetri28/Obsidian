@@ -156,6 +156,16 @@
           "icon": "git-pull-request",
           "title": "Source Control"
         }
+      },
+      {
+        "id": "3c15d414053d4d87",
+        "type": "leaf",
+        "state": {
+          "type": "calendar",
+          "state": {},
+          "icon": "calendar-with-checkmark",
+          "title": "Calendar"
+        }
       }
     ],
     "currentTab": 3
@@ -176,29 +186,41 @@
   "active": "06a14b58acfd8602",
   "lastOpenFiles": [
     "00-Inbox/A-B testing.md",
+    "/00-Inbox/A-B testing.md",
     "00-Inbox/We can win.md",
     "00-Inbox/The Vanity metrics and The Availibility Bias.md",
     "00-Inbox/Never Miss twice.md",
-    "00-Inbox/Lean Startup Concepts.md",
-    "00-Inbox/Laws.md",
-    "00-Inbox/Butterfly Effect.md",
-    "/00-Inbox/A-B testing.md",
     "/00-Inbox/We can win.md",
     "/00-Inbox/The Vanity metrics and The Availibility Bias.md",
     "/00-Inbox/Never Miss twice.md",
-    "Butterfly Effect.md",
-    "/00-Inbox/Lean Startup Concepts.md",
     "/00-Inbox/Laws.md",
-    "/00-Inbox/Butterfly Effect.md",
-    "00-Inbox",
+    "00-Inbox/Laws.md",
     "/00-Inbox",
-    "The Vanity metrics and The Availibility Bias.md",
-    "Laws.md",
-    "The Vanity metrics and The Availibility Bias 1.md",
-    "Lean Startup Concepts.md",
-    "Never Miss twice.md",
-    "We can win.md",
-    "this is a test file.md",
+    "/99-Attachments",
+    "/05-Daily",
+    "/03-Resources",
+    "/02-Areas",
+    "/01-Projects",
+    "05-Daily/A-B testing.md",
+    "/05-Daily/A-B testing.md",
+    "99-Attachments/Laws.md",
+    "04-Archives/Lean Startup Concepts.md",
+    "04-Archives/Butterfly Effect.md",
+    "03-Resources/Never Miss twice.md",
+    "02-Areas/The Vanity metrics and The Availibility Bias.md",
+    "01-Projects/We can win.md",
+    "/99-Attachments/Laws.md",
+    "/04-Archives/Lean Startup Concepts.md",
+    "/04-Archives/Butterfly Effect.md",
+    "/03-Resources/Never Miss twice.md",
+    "/02-Areas/The Vanity metrics and The Availibility Bias.md",
+    "/01-Projects/We can win.md",
+    "99-Attachments",
+    "05-Daily",
+    "04-Archives",
+    "03-Resources",
+    "00-Inbox/Lean Startup Concepts.md",
+    "00-Inbox/Butterfly Effect.md",
     "Untitled.canvas"
   ]
 }
