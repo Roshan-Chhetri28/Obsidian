@@ -11,14 +11,10 @@
             "id": "37e2a6be456eb130",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00-Inbox/A-B testing.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "A-B testing"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -174,13 +170,23 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
+          },
+          {
+            "id": "bd68d1885dc5627c",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -197,9 +203,9 @@
   },
   "active": "37e2a6be456eb130",
   "lastOpenFiles": [
+    "00-Inbox/A-B testing.md",
     "00-Inbox/Untitled.base",
     "05-Daily/2026-05-01.md",
-    "00-Inbox/A-B testing.md",
     "Untitled.canvas",
     "99-Attachments",
     "05-Daily",
