@@ -11,16 +11,6 @@
             "id": "47121b4787bb24f5",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
-            "id": "ec0232c796d3a3d8",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
                 "file": "00-Inbox/A-B testing.md",
@@ -31,8 +21,7 @@
               "title": "A-B testing"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -196,8 +185,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "ec0232c796d3a3d8",
+  "active": "47121b4787bb24f5",
   "lastOpenFiles": [
+    "Untitled.canvas",
+    "00-Inbox/Untitled.base",
     "00-Inbox/A-B testing.md",
     "99-Attachments",
     "05-Daily",
@@ -215,7 +206,6 @@
     "00-Inbox/We can win.md",
     "00-Inbox/Butterfly Effect.md",
     "this is a test file.md",
-    "Untitled.canvas",
     "README.md",
     "Untitled.base",
     "sdlxkgnvldkfgn.md",
