@@ -11,14 +11,10 @@
             "id": "06a14b58acfd8602",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Butterfly Effect.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Butterfly Effect"
+              "title": "New tab"
             }
           }
         ]
@@ -179,13 +175,29 @@
   },
   "active": "06a14b58acfd8602",
   "lastOpenFiles": [
+    "00-Inbox/A-B testing.md",
+    "00-Inbox/We can win.md",
+    "00-Inbox/The Vanity metrics and The Availibility Bias.md",
+    "00-Inbox/Never Miss twice.md",
+    "00-Inbox/Lean Startup Concepts.md",
+    "00-Inbox/Laws.md",
+    "00-Inbox/Butterfly Effect.md",
+    "/00-Inbox/A-B testing.md",
+    "/00-Inbox/We can win.md",
+    "/00-Inbox/The Vanity metrics and The Availibility Bias.md",
+    "/00-Inbox/Never Miss twice.md",
+    "Butterfly Effect.md",
+    "/00-Inbox/Lean Startup Concepts.md",
+    "/00-Inbox/Laws.md",
+    "/00-Inbox/Butterfly Effect.md",
+    "00-Inbox",
+    "/00-Inbox",
     "The Vanity metrics and The Availibility Bias.md",
     "Laws.md",
     "The Vanity metrics and The Availibility Bias 1.md",
     "Lean Startup Concepts.md",
     "Never Miss twice.md",
     "We can win.md",
-    "Butterfly Effect.md",
     "this is a test file.md",
     "Untitled.canvas"
   ]
