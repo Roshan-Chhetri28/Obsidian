@@ -51,7 +51,7 @@
 					-Significance level: 5% (default)
 					-use [Evan Miller's](https://www.evanmiller.org/ab-testing/sample-size.html) calculator 
 				-which gives us 3,623 users per variation
-				- RunTime 7346/
+				- RunTime 7346/3,800=1.9 days (so round it to 7 days)
 5. Build the variant: 
 	1. make one change only
 		-  The "Credit" Problem
@@ -94,4 +94,9 @@ posthog.capture('experiment_assigned', {
 	- You resist the urge to check results on day 5 even though B looks like it's winning
 	- You don't make any other changes to the course detail screen during this period
 8. Sanity Check Before Reading
-	1. 
+	1. Expected: 2,400 per variant 
+	2. Actual: 
+		1. A = 2,380, 
+		2. B = 2,420 
+		3. ✓ close enough If you saw: A = 2,400, B = 1,800 ✗ something broke randomization is invalid don't trust any results
+		
