@@ -33,8 +33,25 @@
 4. Define/Calculate time to run the test: 
 	   Without touching any code, figure out required sample size.
 		How do we figure sample size?
-			→ Users who downloaded the app (through ads): (say) 4000
-			→ Users who visited the course: (say) 3800 (5% drop)
-			→ User who fired up payment: 400 (89% drop)
-			→ User who paid: 40 (90% drop)
-			
+			Following is the example of our funnel: 
+				→ Users who downloaded the app (through ads): (say) 4000
+				→ Users who visited the course: (say) 3800 (5% drop)
+				→ User who fired up payment: 400 (89% drop)
+				→ User who paid: 40 (90% drop)
+				- Calculate base line:
+$$
+					Baseline = 400/3800 = 10.5%
+$$
+				- Decide MDE (Minimum Detectable Effort): 
+$$
+					current: 
+					3800 users/day ×10% 
+					= 400 purchases/day
+$$$$
+After 2% 
+: 3800×12%
+=456 purchase/day
+$$
+				- Extra purchase/day : 56
+				- Extra purchase/year: 20,440
+				- At ₹499/course: ₹1,01,99,560 extra revenue/year
