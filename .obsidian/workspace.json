@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "b5455ffe044a982c",
+        "id": "df501a1f9783ded8",
         "type": "tabs",
         "children": [
           {
-            "id": "0b8d5ac09ade35a6",
+            "id": "47121b4787bb24f5",
             "type": "leaf",
             "state": {
-              "type": "graph",
+              "type": "empty",
               "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -181,8 +181,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "0b8d5ac09ade35a6",
+  "active": "1a748365f56e7e2e",
   "lastOpenFiles": [
+    "Inbox",
+    "Excalidraw/Drawing 2026-05-01 10.24.44.excalidraw.md",
+    "Excalidraw",
     "Laws.md",
     "The Vanity metrics and The Availibility Bias.md",
     "Lean Startup Concepts.md",
