@@ -8,105 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "37e2a6be456eb130",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00-Inbox/A-B testing.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "A-B testing"
-            }
-          },
-          {
-            "id": "1ffdfcb807668875",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/15-Unit Testing (lecture 15).md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "15-Unit Testing (lecture 15)"
-            }
-          },
-          {
-            "id": "3fd49498bb0460e1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "00-Inbox/Lean Startup Concepts.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Lean Startup Concepts"
-            }
-          },
-          {
-            "id": "4485617a8fc65a63",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/18-Why are we testing.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "18-Why are we testing"
-            }
-          },
-          {
-            "id": "25f19b0794696994",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/19-The AAA pattern.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "19-The AAA pattern"
-            }
-          },
-          {
-            "id": "d695d09789af92da",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/20, 21 and 22.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "20, 21 and 22"
-            }
-          },
-          {
             "id": "1c1db3b796a65ca3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/Testing for Errors.md",
+                "file": "03-Resources/Unit Testing/20, 21, 22, & 23.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Testing for Errors"
+              "title": "20, 21, 22, & 23"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
@@ -179,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "test.md",
+                "file": "03-Resources/Unit Testing/20, 21, 22, & 23.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -189,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for test"
+              "title": "Backlinks for 20, 21, 22, & 23"
             }
           },
           {
@@ -198,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "test.md",
+                "file": "03-Resources/Unit Testing/20, 21, 22, & 23.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from test"
+              "title": "Outgoing links from 20, 21, 22, & 23"
             }
           },
           {
@@ -271,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -292,9 +207,10 @@
   },
   "active": "1c1db3b796a65ca3",
   "lastOpenFiles": [
+    "00-Inbox/23-Testing for Errors.md",
+    "00-Inbox/Untitled.md",
     "00-Inbox/Untitled 1.md",
-    "00-Inbox/Testing for Errors.md",
-    "03-Resources/Unit Testing/20, 21 and 22.md",
+    "03-Resources/Unit Testing/20, 21, 22, & 23.md",
     "03-Resources/Unit Testing/19-The AAA pattern.md",
     "00-Inbox/Untitled.base",
     "03-Resources/Unit Testing/18-Why are we testing.md",
