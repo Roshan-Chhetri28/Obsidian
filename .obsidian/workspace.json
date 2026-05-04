@@ -8,34 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "1c1db3b796a65ca3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "42-46; Section 2; Integration Test"
-            }
-          },
-          {
-            "id": "45c336726f634e68",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "47-58-section6-Advanced Testing concept"
-            }
-          },
-          {
             "id": "83f80ba169e7ce6c",
             "type": "leaf",
             "state": {
@@ -48,65 +20,8 @@
               "icon": "lucide-file",
               "title": "53-55- Testing Hooks"
             }
-          },
-          {
-            "id": "d45f6c2687505350",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/25, 26, 27.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "25, 26, 27"
-            }
-          },
-          {
-            "id": "033ae18b16483434",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/28- Test with multiple assertion.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "28- Test with multiple assertion"
-            }
-          },
-          {
-            "id": "24728a307add8f50",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/19-The AAA pattern.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "19-The AAA pattern"
-            }
-          },
-          {
-            "id": "d107a3928eafea78",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/Unit Testing/33-Section 4-Writing Good Tests.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "33-Section 4-Writing Good Tests"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -256,8 +171,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "icon": "lucide-ghost",
+              "title": "calendar"
             }
           },
           {
@@ -266,8 +181,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-ghost",
+              "title": "git-view"
             }
           }
         ],
@@ -279,18 +194,18 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "83f80ba169e7ce6c",
+  "active": "1a748365f56e7e2e",
   "lastOpenFiles": [
     "03-Resources/Mind Dumps",
     "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
