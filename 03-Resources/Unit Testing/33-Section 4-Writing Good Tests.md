@@ -44,3 +44,11 @@ it('should summarize all numbers values in an arrary')
 <hr>
 
 ##  37 Splitting functions for Easier testing & Better Code
+
+- There is not much to write but we can see it in following example (we have this functionality every where in our code so making it granular will help all of us out):
+```js
+function fromSubmitHandler(event) {
+	event.preventDefault();
+	const numberInputs = 
+}
+```
