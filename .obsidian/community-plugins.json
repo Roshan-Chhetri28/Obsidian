@@ -2,5 +2,6 @@
   "obsidian-git",
   "obsidian-excalidraw-plugin",
   "code-styler",
-  "calendar"
+  "calendar",
+  "obsidian-local-rest-api"
 ]
