@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/53-55- Testing Hooks.md",
+                "file": "03-Resources/Unit Testing/53-55- Testing Hooks.md",
                 "mode": "source",
                 "source": false
               },
@@ -113,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00-Inbox/53-55- Testing Hooks.md",
+                "file": "03-Resources/Unit Testing/53-55- Testing Hooks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -207,9 +207,11 @@
   },
   "active": "1a748365f56e7e2e",
   "lastOpenFiles": [
+    "99-Attachments/Testing Pyramid.png",
+    "99-Attachments",
     "03-Resources/Mind Dumps",
     "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
-    "00-Inbox/53-55- Testing Hooks.md",
+    "03-Resources/Unit Testing/53-55- Testing Hooks.md",
     "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
     "03-Resources/Mind Dumps/A-B testing.md",
     "00-Inbox/Untitled.base",
@@ -237,12 +239,10 @@
     "Untitled 1",
     "03-Resources/Unit Testing",
     "05-Daily/2026-05-01.md",
-    "99-Attachments",
     "05-Daily",
     "04-Archives",
     "03-Resources",
     "02-Areas",
-    "01-Projects",
     "Excalidraw/Drawing 2026-05-01 10.24.44.excalidraw.md",
     "00-Inbox/Laws.md"
   ]
