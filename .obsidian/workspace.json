@@ -13,12 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/42-46; Section 2; Integration Test.md",
+                "file": "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "42-46; Section 2; Integration Test"
+            }
+          },
+          {
+            "id": "45c336726f634e68",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-Inbox/Advanced Testing concept.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Advanced Testing concept"
             }
           },
           {
@@ -77,7 +91,8 @@
               "title": "33-Section 4-Writing Good Tests"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -169,12 +184,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00-Inbox/42-46; Section 2; Integration Test.md",
+                "file": "00-Inbox/Advanced Testing concept.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 42-46; Section 2; Integration Test"
+              "title": "Outgoing links from Advanced Testing concept"
             }
           },
           {
@@ -261,8 +276,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "1c1db3b796a65ca3",
+  "active": "45c336726f634e68",
   "lastOpenFiles": [
+    "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
+    "00-Inbox/Advanced Testing concept.md",
     "03-Resources/Unit Testing/33-Section 4-Writing Good Tests.md",
     "03-Resources/Unit Testing/30. Introduction to Test Suites.md",
     "03-Resources/Unit Testing/28- Test with multiple assertion.md",
@@ -274,7 +291,6 @@
     "03-Resources/Unit Testing/16-Writing  First test.md",
     "03-Resources/Unit Testing/25, 26, 27.md",
     "Testing Pyramid.png",
-    "00-Inbox/42-46; Section 2; Integration Test.md",
     "00-Inbox/Butterfly Effect.md",
     "00-Inbox/A-B testing.md",
     "Untitled.canvas",
