@@ -76,5 +76,5 @@ const img = importImageFromLocal()
 
 const logoPos=setPosition()
 
-and so on
+and so on ...
 ```
