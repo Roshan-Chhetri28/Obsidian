@@ -20,8 +20,37 @@
               "icon": "lucide-file",
               "title": "53-55- Testing Hooks"
             }
+          },
+          {
+            "id": "7a196b7ef5820d2b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "56 & 57-Concurrent Test"
+            }
+          },
+          {
+            "id": "273614a24a876979",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-Inbox/Spies  & mocks.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Spies  & mocks"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -94,7 +123,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "03-Resources/Unit Testing/20, 21, 22, & 23, 24.md",
+                "file": "00-Inbox/Spies  & mocks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +133,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 20, 21, 22, & 23, 24"
+              "title": "Backlinks for Spies  & mocks"
             }
           },
           {
@@ -113,12 +142,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "03-Resources/Unit Testing/53-55- Testing Hooks.md",
+                "file": "00-Inbox/Spies  & mocks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 53-55- Testing Hooks"
+              "title": "Outgoing links from Spies  & mocks"
             }
           },
           {
@@ -181,16 +210,17 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "git-view"
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -205,13 +235,15 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "1a748365f56e7e2e",
+  "active": "273614a24a876979",
   "lastOpenFiles": [
+    "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
+    "00-Inbox/Spies  & mocks.md",
+    "03-Resources/Unit Testing/53-55- Testing Hooks.md",
     "99-Attachments/Testing Pyramid.png",
     "99-Attachments",
     "03-Resources/Mind Dumps",
     "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
-    "03-Resources/Unit Testing/53-55- Testing Hooks.md",
     "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
     "03-Resources/Mind Dumps/A-B testing.md",
     "00-Inbox/Untitled.base",
@@ -243,7 +275,6 @@
     "04-Archives",
     "03-Resources",
     "02-Areas",
-    "Excalidraw/Drawing 2026-05-01 10.24.44.excalidraw.md",
-    "00-Inbox/Laws.md"
+    "Excalidraw/Drawing 2026-05-01 10.24.44.excalidraw.md"
   ]
 }
