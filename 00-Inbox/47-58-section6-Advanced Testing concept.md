@@ -8,4 +8,4 @@
 ## toBe() vs toEqual()
 - ==toBe()== uses ==strictly equal== so [1, 2] is not equal to [1, 2]
 - ==toEqual()== uses ==loose equality== 
-- 
+## ![[Test Asynchronous code]]

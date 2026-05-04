@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/Advanced Testing concept.md",
+                "file": "00-Inbox/Test Asynchronous code.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Advanced Testing concept"
+              "title": "Test Asynchronous code"
             }
           },
           {
@@ -184,12 +184,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00-Inbox/Advanced Testing concept.md",
+                "file": "00-Inbox/Test Asynchronous code.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Advanced Testing concept"
+              "title": "Outgoing links from Test Asynchronous code"
             }
           },
           {
@@ -278,8 +278,9 @@
   },
   "active": "45c336726f634e68",
   "lastOpenFiles": [
+    "00-Inbox/47-58-section6-Advanced Testing concept.md",
+    "00-Inbox/Test Asynchronous code.md",
     "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
-    "00-Inbox/Advanced Testing concept.md",
     "03-Resources/Unit Testing/33-Section 4-Writing Good Tests.md",
     "03-Resources/Unit Testing/30. Introduction to Test Suites.md",
     "03-Resources/Unit Testing/28- Test with multiple assertion.md",
@@ -314,7 +315,6 @@
     "Excalidraw/Drawing 2026-05-01 10.24.44.excalidraw.md",
     "00-Inbox/Laws.md",
     "04-Archives/Lean Startup Concepts.md",
-    "00-Inbox/Never Miss twice.md",
-    "04-Archives/Butterfly Effect.md"
+    "00-Inbox/Never Miss twice.md"
   ]
 }
