@@ -111,12 +111,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/59-70-Spies  & mocks.md",
+                "file": "00-Inbox/mock.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "59-70-Spies  & mocks"
+              "title": "mock"
             }
           }
         ],
@@ -306,9 +306,9 @@
   },
   "active": "b3682f4c58ed531e",
   "lastOpenFiles": [
+    "00-Inbox/59-70-Spies  & mocks.md",
     "00-Inbox/mock.md",
     "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
-    "00-Inbox/59-70-Spies  & mocks.md",
     "03-Resources/Unit Testing/33-Section 4-Writing Good Tests.md",
     "conflict-files-obsidian-git.md",
     "00-Inbox/Concurrent Test.md",
