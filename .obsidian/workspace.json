@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/71-81- Diving Deeper on.md",
+                "file": "03-Resources/Unit Testing/17-Running Test.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "71-81- Diving Deeper on"
+              "title": "17-Running Test"
             }
           }
         ],
@@ -251,8 +251,10 @@
   },
   "active": "f63f800060146c4a",
   "lastOpenFiles": [
-    "03-Resources/Unit Testing/70-Mind dump on mocking.md",
+    "03-Resources/Unit Testing/16-Writing  First test.md",
+    "03-Resources/Unit Testing/15-Unit Testing (lecture 15).md",
     "00-Inbox/71-81- Diving Deeper on.md",
+    "03-Resources/Unit Testing/70-Mind dump on mocking.md",
     "03-Resources/Unit Testing/65-mock.md",
     "03-Resources/Unit Testing/59-70-Spies  & mocks.md",
     "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
@@ -273,8 +275,6 @@
     "03-Resources/Unit Testing/18-Why are we testing.md",
     "03-Resources/Unit Testing/19-The AAA pattern.md",
     "03-Resources/Unit Testing/17-Running Test.md",
-    "03-Resources/Unit Testing/15-Unit Testing (lecture 15).md",
-    "03-Resources/Unit Testing/16-Writing  First test.md",
     "03-Resources/Unit Testing/25, 26, 27.md",
     "Testing Pyramid.png",
     "03-Resources/Mind Dumps/Butterfly Effect.md",
