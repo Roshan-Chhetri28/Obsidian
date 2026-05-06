@@ -90,23 +90,9 @@
               "icon": "lucide-file",
               "title": "19-The AAA pattern"
             }
-          },
-          {
-            "id": "d107a3928eafea78",
-            "type": "leaf",
-            "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": "conflict-files-obsidian-git.md",
-                "bFile": "conflict-files-obsidian-git.md",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: conflict-files-obsidian-git  (Working Tree)"
-            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -290,7 +276,7 @@
       "bases:Create new base": false
     }
   },
-  "active": "d107a3928eafea78",
+  "active": "24728a307add8f50",
   "lastOpenFiles": [
     "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
     "conflict-files-obsidian-git.md",
