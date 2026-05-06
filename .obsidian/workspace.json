@@ -8,6 +8,34 @@
         "type": "tabs",
         "children": [
           {
+            "id": "1c1db3b796a65ca3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "42-46; Section 2; Integration Test"
+            }
+          },
+          {
+            "id": "45c336726f634e68",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "47-58-section6-Advanced Testing concept"
+            }
+          },
+          {
             "id": "83f80ba169e7ce6c",
             "type": "leaf",
             "state": {
@@ -22,49 +50,63 @@
             }
           },
           {
-            "id": "7a196b7ef5820d2b",
+            "id": "d45f6c2687505350",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03-Resources/Unit Testing/65-mock.md",
+                "file": "03-Resources/Unit Testing/25, 26, 27.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "65-mock"
+              "title": "25, 26, 27"
             }
           },
           {
-            "id": "88737094445151fc",
+            "id": "033ae18b16483434",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03-Resources/Unit Testing/70-Mind dump on mocking.md",
+                "file": "03-Resources/Unit Testing/28- Test with multiple assertion.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "70-Mind dump on mocking"
+              "title": "28- Test with multiple assertion"
             }
           },
           {
-            "id": "f63f800060146c4a",
+            "id": "24728a307add8f50",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03-Resources/Unit Testing/17-Running Test.md",
-                "mode": "preview",
+                "file": "03-Resources/Unit Testing/19-The AAA pattern.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "17-Running Test"
+              "title": "19-The AAA pattern"
+            }
+          },
+          {
+            "id": "d107a3928eafea78",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "conflict-files-obsidian-git.md",
+                "bFile": "conflict-files-obsidian-git.md",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: conflict-files-obsidian-git  (Working Tree)"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -137,7 +179,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00-Inbox/Spies  & mocks.md",
+                "file": "03-Resources/Unit Testing/20, 21, 22, & 23, 24.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +189,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Spies  & mocks"
+              "title": "Backlinks for 20, 21, 22, & 23, 24"
             }
           },
           {
@@ -156,12 +198,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00-Inbox/Spies  & mocks.md",
+                "file": "00-Inbox/Concurrent Test.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Spies  & mocks"
+              "title": "Outgoing links from Concurrent Test"
             }
           },
           {
@@ -214,8 +256,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "calendar"
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
             }
           },
           {
@@ -233,58 +275,58 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-excalidraw-plugin:New drawing": false
+      "bases:Create new base": false
     }
   },
-  "active": "f63f800060146c4a",
+  "active": "d107a3928eafea78",
   "lastOpenFiles": [
-    "03-Resources/Unit Testing/16-Writing  First test.md",
-    "03-Resources/Unit Testing/15-Unit Testing (lecture 15).md",
-    "00-Inbox/71-81- Diving Deeper on.md",
+    "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
+    "conflict-files-obsidian-git.md",
+    "00-Inbox/59-70-Spies  & mocks.md",
     "03-Resources/Unit Testing/70-Mind dump on mocking.md",
     "03-Resources/Unit Testing/65-mock.md",
     "03-Resources/Unit Testing/59-70-Spies  & mocks.md",
-    "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
-    "00-Inbox/Spies  & mocks.md",
-    "03-Resources/Unit Testing/53-55- Testing Hooks.md",
+    "00-Inbox/71-81- Diving Deeper on.md",
+    "00-Inbox/mock.md",
+    "03-Resources/Unit Testing/15-Unit Testing (lecture 15).md",
+    "03-Resources/Unit Testing/17-Running Test.md",
+    "03-Resources/Unit Testing/16-Writing  First test.md",
+    "03-Resources/Unit Testing/33-Section 4-Writing Good Tests.md",
+    "00-Inbox/Concurrent Test.md",
     "99-Attachments/Testing Pyramid.png",
-    "99-Attachments",
+    "03-Resources/Unit Testing/53-55- Testing Hooks.md",
     "03-Resources/Mind Dumps",
     "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
     "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
     "03-Resources/Mind Dumps/A-B testing.md",
     "00-Inbox/Untitled.base",
     "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
-    "03-Resources/Unit Testing/33-Section 4-Writing Good Tests.md",
     "03-Resources/Unit Testing/30. Introduction to Test Suites.md",
     "03-Resources/Unit Testing/28- Test with multiple assertion.md",
     "03-Resources/Unit Testing/20, 21, 22, & 23, 24.md",
     "03-Resources/Unit Testing/18-Why are we testing.md",
     "03-Resources/Unit Testing/19-The AAA pattern.md",
-    "03-Resources/Unit Testing/17-Running Test.md",
     "03-Resources/Unit Testing/25, 26, 27.md",
     "Testing Pyramid.png",
     "03-Resources/Mind Dumps/Butterfly Effect.md",
     "Untitled.canvas",
     "03-Resources/Integration Test",
     "00-Inbox/23-Testing for Errors.md",
-    "03-Resources/Mind Dumps/Lean Startup Concepts.md",
-    "03-Resources/Mind Dumps/Philosophical Laws.md",
-    "03-Resources/Mind Dumps/We can win.md",
     "Untitled 1",
     "03-Resources/Unit Testing",
+    "99-Attachments",
     "05-Daily",
     "04-Archives",
     "03-Resources",
