@@ -6,3 +6,4 @@ Here is how to use Eisenhower:
 - ask yourself: 
 	- When will i deal with the things that are important, but not urgent?
 	- when will i take time to deal with important tasks before the become urgent?
+- ![[Eisenhover_Matrix.jpg]]
