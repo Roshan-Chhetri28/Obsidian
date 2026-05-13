@@ -11,10 +11,14 @@
             "id": "06a14b58acfd8602",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "00-Inbox/01- The Eisenhower matrix.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "01- The Eisenhower matrix"
             }
           }
         ]
@@ -185,8 +189,11 @@
   },
   "active": "06a14b58acfd8602",
   "lastOpenFiles": [
-    "/00-Inbox/01- The Eisenhower matrix.md",
+    "/00-Inbox/82-Things learned  by myself.md",
+    "00-Inbox/82-Things learned  by myself.md",
     "/00-Inbox",
+    "IMG_20260512_174129443.jpg",
+    "/00-Inbox/01- The Eisenhower matrix.md",
     "00-Inbox/01- The Eisenhower matrix.md",
     "/03-Resources/Unit Testing/71-81- Diving Deeper on.md",
     "03-Resources/Unit Testing/71-81- Diving Deeper on.md",
@@ -213,7 +220,6 @@
     "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
     "03-Resources/Unit Testing/33-Section 4-Writing Good Tests.md",
     "03-Resources/Unit Testing/30. Introduction to Test Suites.md",
-    "03-Resources/Unit Testing/28- Test with multiple assertion.md",
     "Untitled.canvas",
     "/Testing Pyramid.png",
     "/Untitled.canvas",
