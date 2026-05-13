@@ -11,14 +11,12 @@
             "id": "4e347772f24731f6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "00-Inbox/The SWOT analysis.md",
-                "mode": "source",
-                "source": false
+                "file": "Eisenhover_Matrix.jpg"
               },
-              "icon": "lucide-file",
-              "title": "The SWOT analysis"
+              "icon": "lucide-image",
+              "title": "Eisenhover_Matrix"
             }
           }
         ]
@@ -189,8 +187,8 @@
   },
   "active": "4e347772f24731f6",
   "lastOpenFiles": [
-    "SWOT_Analysis.jpg",
     "00-Inbox/The SWOT analysis.md",
+    "SWOT_Analysis.jpg",
     "03-Resources/Unit Testing/82-Things learned  by myself.md",
     "Eisenhover_Matrix.jpg",
     "03-Resources/The Decision Book/01- The Eisenhower matrix.md",
