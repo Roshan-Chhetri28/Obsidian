@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "06a14b58acfd8602",
+            "id": "4e347772f24731f6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/01- The Eisenhower matrix.md",
+                "file": "03-Resources/The Decision Book/01- The Eisenhower matrix.md",
                 "mode": "source",
                 "source": false
               },
@@ -187,14 +187,23 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "06a14b58acfd8602",
+  "active": "4e347772f24731f6",
   "lastOpenFiles": [
+    "IMG_20260513_174043287.jpg",
+    "00-Inbox/Untitled.md",
+    "03-Resources/The Decision Book/01- The Eisenhower matrix.md",
+    "00-Inbox/01- The Eisenhower matrix.md",
+    "EisenHover matrix.jpg",
+    "03-Resources/Unit Testing/82-Things learned  by myself.md",
+    "03-Resources/The Decision Book",
+    "00-Inbox/The SWOT analysis.md",
+    "IMG_20260513_115934116.jpg",
+    "IMG_20260512_174129443.jpg",
+    "conflict-files-obsidian-git.md",
     "/00-Inbox/82-Things learned  by myself.md",
     "00-Inbox/82-Things learned  by myself.md",
     "/00-Inbox",
-    "IMG_20260512_174129443.jpg",
     "/00-Inbox/01- The Eisenhower matrix.md",
-    "00-Inbox/01- The Eisenhower matrix.md",
     "/03-Resources/Unit Testing/71-81- Diving Deeper on.md",
     "03-Resources/Unit Testing/71-81- Diving Deeper on.md",
     "/03-Resources/Unit Testing",
@@ -213,13 +222,7 @@
     "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
     "00-Inbox/71-81- Diving Deeper on.md",
     "/00-Inbox/71-81- Diving Deeper on.md",
-    "00-Inbox/The Vanity metrics and The Availibility Bias.md",
-    "03-Resources/Mind Dumps/A-B testing.md",
     "99-Attachments/Testing Pyramid.png",
-    "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
-    "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
-    "03-Resources/Unit Testing/33-Section 4-Writing Good Tests.md",
-    "03-Resources/Unit Testing/30. Introduction to Test Suites.md",
     "Untitled.canvas",
     "/Testing Pyramid.png",
     "/Untitled.canvas",
@@ -228,7 +231,6 @@
     "03-Resources/Unit Testing",
     "/99-Attachments",
     "/05-Daily",
-    "/02-Areas",
-    "/01-Projects"
+    "/02-Areas"
   ]
 }
