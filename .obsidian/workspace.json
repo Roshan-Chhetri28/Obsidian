@@ -109,14 +109,12 @@
             "id": "eb620106cd59e98f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "00-Inbox/82-Things learned  by myself.md",
-                "mode": "source",
-                "source": false
+                "file": "EisenHover matrix.jpg"
               },
-              "icon": "lucide-file",
-              "title": "82-Things learned  by myself"
+              "icon": "lucide-image",
+              "title": "EisenHover matrix"
             }
           }
         ],
@@ -304,10 +302,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "eb620106cd59e98f",
+  "active": "1a748365f56e7e2e",
   "lastOpenFiles": [
-    "00-Inbox/01- The Eisenhower matrix.md",
     "00-Inbox/82-Things learned  by myself.md",
+    "EisenHover matrix.jpg",
+    "00-Inbox/01- The Eisenhower matrix.md",
     "03-Resources/Unit Testing/19-The AAA pattern.md",
     "03-Resources/The Decision Book",
     "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
@@ -335,7 +334,6 @@
     "03-Resources/Unit Testing/28- Test with multiple assertion.md",
     "03-Resources/Unit Testing/20, 21, 22, & 23, 24.md",
     "03-Resources/Unit Testing/18-Why are we testing.md",
-    "03-Resources/Unit Testing/25, 26, 27.md",
     "Testing Pyramid.png",
     "Untitled.canvas",
     "03-Resources/Integration Test",
