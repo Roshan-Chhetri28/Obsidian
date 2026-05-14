@@ -11,10 +11,14 @@
             "id": "8c16e7cf670ca6f1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "03-Resources/The Decision Book/03-The BEG Box.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "03-The BEG Box"
             }
           }
         ]
@@ -183,8 +187,9 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "77d5b81e4736048e",
+  "active": "8c16e7cf670ca6f1",
   "lastOpenFiles": [
+    "IMG_20260514_150513784.jpg",
     "03-Resources/The Decision Book/03-The BEG Box.md",
     "/03-Resources/The Decision Book/03-The BEG Box.md",
     "/02-Areas/Ego/SWOT analysis on myself.md",
@@ -224,7 +229,6 @@
     "/03-Resources/Unit Testing",
     "03-Resources/Unit Testing/59-70-Spies  & mocks.md",
     "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
-    "03-Resources/Unit Testing/16-Writing  First test.md",
     "99-Attachments/Testing Pyramid.png",
     "Untitled.canvas",
     "/Testing Pyramid.png",
