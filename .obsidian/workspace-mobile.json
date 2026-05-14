@@ -183,8 +183,18 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "8c16e7cf670ca6f1",
+  "active": "77d5b81e4736048e",
   "lastOpenFiles": [
+    "03-Resources/The Decision Book/03-The BEG Box.md",
+    "/03-Resources/The Decision Book/03-The BEG Box.md",
+    "/02-Areas/Ego/SWOT analysis on myself.md",
+    "/02-Areas/Ego",
+    "/02-Areas",
+    "03-Resources/The Decision Book/02-The SWOT analysis.md",
+    "/03-Resources/The Decision Book/02-The SWOT analysis.md",
+    "/03-Resources/The Decision Book",
+    "/03-Resources",
+    "/00-Inbox",
     "03-Resources/Mind Dumps/A-B testing.md",
     "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
     "03-Resources/Unit Testing/00-Content.md",
@@ -192,7 +202,6 @@
     "02-Areas/Ego/Pragmatic Architect.md",
     "/00-Inbox/Untitled.md",
     "00-Inbox/Untitled.md",
-    "/00-Inbox",
     "02-Areas/Ego/SWOT analysis on myself.md",
     "02-Areas/Finance",
     "02-Areas/Family",
@@ -213,21 +222,12 @@
     "/00-Inbox/01- The Eisenhower matrix.md",
     "/03-Resources/Unit Testing/71-81- Diving Deeper on.md",
     "/03-Resources/Unit Testing",
-    "/03-Resources",
     "03-Resources/Unit Testing/59-70-Spies  & mocks.md",
     "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
     "03-Resources/Unit Testing/16-Writing  First test.md",
-    "03-Resources/Unit Testing/53-55- Testing Hooks.md",
-    "/03-Resources/Unit Testing/53-55- Testing Hooks.md",
-    "03-Resources/Unit Testing/70-Mind dump on mocking.md",
-    "03-Resources/Unit Testing/65-mock.md",
-    "/03-Resources/Unit Testing/70-Mind dump on mocking.md",
     "99-Attachments/Testing Pyramid.png",
     "Untitled.canvas",
     "/Testing Pyramid.png",
-    "/Untitled.canvas",
-    "/03-Resources/Mind Dumps",
-    "03-Resources/Mind Dumps",
-    "03-Resources/Unit Testing"
+    "/Untitled.canvas"
   ]
 }
