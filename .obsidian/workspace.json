@@ -123,12 +123,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/The SWOT analysis.md",
+                "file": "03-Resources/Unit Testing/00-Content.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The SWOT analysis"
+              "title": "00-Content"
             }
           }
         ],
@@ -318,8 +318,19 @@
   },
   "active": "8c2747e1470d04cc",
   "lastOpenFiles": [
-    "EisenHover matrix.jpg",
+    "03-Resources/Unit Testing/59-70-Spies  & mocks.md",
+    "03-Resources/Unit Testing/00-Content.md",
+    "SWOT_Analysis.jpg",
+    "Eisenhover_Matrix.jpg",
+    "99-Attachments/SWOT_Analysis.jpg",
+    "99-Attachments/Eisenhover_Matrix.jpg",
+    "03-Resources/The Decision Book/The SWOT analysis.md",
+    "02-Areas/Ego/Pragmatic Architect.md",
+    "02-Areas/Ego/SWOT analysis on myself.md",
+    "02-Areas/Ego",
+    "00-Inbox/Untitled.md",
     "00-Inbox/The SWOT analysis.md",
+    "EisenHover matrix.jpg",
     "03-Resources/Unit Testing/82-Things learned  by myself.md",
     "03-Resources/The Decision Book/01- The Eisenhower matrix.md",
     "03-Resources/Unit Testing/19-The AAA pattern.md",
@@ -329,7 +340,6 @@
     "00-Inbox/59-70-Spies  & mocks.md",
     "03-Resources/Unit Testing/70-Mind dump on mocking.md",
     "03-Resources/Unit Testing/65-mock.md",
-    "03-Resources/Unit Testing/59-70-Spies  & mocks.md",
     "03-Resources/Unit Testing/71-81- Diving Deeper on.md",
     "00-Inbox/mock.md",
     "03-Resources/Unit Testing/15-Unit Testing (lecture 15).md",
@@ -342,12 +352,7 @@
     "03-Resources/Mind Dumps",
     "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
     "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
-    "03-Resources/Mind Dumps/A-B testing.md",
     "00-Inbox/Untitled.base",
-    "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
-    "03-Resources/Unit Testing/30. Introduction to Test Suites.md",
-    "03-Resources/Unit Testing/28- Test with multiple assertion.md",
-    "03-Resources/Unit Testing/20, 21, 22, & 23, 24.md",
     "Testing Pyramid.png",
     "Untitled.canvas",
     "03-Resources/Integration Test",
@@ -355,7 +360,6 @@
     "03-Resources/Unit Testing",
     "99-Attachments",
     "05-Daily",
-    "04-Archives",
-    "03-Resources"
+    "04-Archives"
   ]
 }
