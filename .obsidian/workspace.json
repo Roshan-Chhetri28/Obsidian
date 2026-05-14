@@ -97,12 +97,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03-Resources/The Decision Book/02-The SWOT analysis.md",
+                "file": "03-Resources/The Decision Book/03-The BEG Box.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02-The SWOT analysis"
+              "title": "03-The BEG Box"
             }
           }
         ],
@@ -292,9 +292,10 @@
   },
   "active": "8f6aedc4edbe12b6",
   "lastOpenFiles": [
+    "03-Resources/The Decision Book/02-The SWOT analysis.md",
+    "03-Resources/The Decision Book/01- The Eisenhower matrix.md",
     "03-Resources/The Decision Book/03-The BEG Box.md",
     "02-Areas/Ego/SWOT analysis on myself.md",
-    "03-Resources/The Decision Book/01- The Eisenhower matrix.md",
     "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
     "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
     "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
@@ -315,7 +316,6 @@
     "Eisenhover_Matrix.jpg",
     "99-Attachments/SWOT_Analysis.jpg",
     "99-Attachments/Eisenhover_Matrix.jpg",
-    "03-Resources/The Decision Book/02-The SWOT analysis.md",
     "02-Areas/Ego/Pragmatic Architect.md",
     "02-Areas/Ego",
     "00-Inbox/Untitled.md",
