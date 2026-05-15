@@ -111,7 +111,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/04-The Project Portfolio Matirx.md",
+                "file": "03-Resources/The Decision Book/04-The Project Portfolio Matirx.md",
                 "mode": "source",
                 "source": false
               },
@@ -304,11 +304,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "bd68d1885dc5627c",
+  "active": "1a748365f56e7e2e",
   "lastOpenFiles": [
+    "99-Attachments/The project portfolio matrix.jpg",
+    "99-Attachments/The BEG Box.jpg",
     "IMG_20260514_150513784.jpg",
     "03-Resources/The Decision Book/03-The BEG Box.md",
-    "00-Inbox/04-The Project Portfolio Matirx.md",
+    "03-Resources/The Decision Book/04-The Project Portfolio Matirx.md",
     "03-Resources/The Decision Book/02-The SWOT analysis.md",
     "03-Resources/The Decision Book/01- The Eisenhower matrix.md",
     "02-Areas/Ego/SWOT analysis on myself.md",
