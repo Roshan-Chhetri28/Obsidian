@@ -25,3 +25,4 @@ Personal summary:
 - In first two of the situation you should invest.
 - the third decision should be yours and yours only 
 - and if dogs liquidate i.e get the fuck out of there
+- I think it is better to perform [[02-The SWOT analysis|SWOT Analysis]] on investments first and find the category 
