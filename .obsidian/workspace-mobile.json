@@ -11,14 +11,12 @@
             "id": "8c16e7cf670ca6f1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "03-Resources/The Decision Book/03-The BEG Box.md",
-                "mode": "source",
-                "source": false
+                "file": "99-Attachments/The BEG Box.jpg"
               },
-              "icon": "lucide-file",
-              "title": "03-The BEG Box"
+              "icon": "lucide-image",
+              "title": "The BEG Box"
             }
           }
         ]
@@ -189,8 +187,12 @@
   },
   "active": "8c16e7cf670ca6f1",
   "lastOpenFiles": [
-    "IMG_20260514_150513784.jpg",
+    "00-Inbox/04-The Project Portfolio Matirx.md",
+    "99-Attachments/The project portfolio matrix.jpg",
     "03-Resources/The Decision Book/03-The BEG Box.md",
+    "/00-Inbox/04-The Project Portfolio Matirx.md",
+    "/00-Inbox",
+    "99-Attachments/The BEG Box.jpg",
     "/03-Resources/The Decision Book/03-The BEG Box.md",
     "/02-Areas/Ego/SWOT analysis on myself.md",
     "/02-Areas/Ego",
@@ -199,7 +201,6 @@
     "/03-Resources/The Decision Book/02-The SWOT analysis.md",
     "/03-Resources/The Decision Book",
     "/03-Resources",
-    "/00-Inbox",
     "03-Resources/Mind Dumps/A-B testing.md",
     "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
     "03-Resources/Unit Testing/00-Content.md",
@@ -227,8 +228,6 @@
     "/00-Inbox/01- The Eisenhower matrix.md",
     "/03-Resources/Unit Testing/71-81- Diving Deeper on.md",
     "/03-Resources/Unit Testing",
-    "03-Resources/Unit Testing/59-70-Spies  & mocks.md",
-    "03-Resources/Unit Testing/47-58-section6-Advanced Testing concept.md",
     "99-Attachments/Testing Pyramid.png",
     "Untitled.canvas",
     "/Testing Pyramid.png",

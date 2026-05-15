@@ -3,7 +3,7 @@
 
 - lets understand this by example given in book itself:
 
-" image"
+![[The project portfolio matrix.jpg]]
 
 - In this example we are classifying projects (both work related and personal) according to  cost and time.
 *Note*:
