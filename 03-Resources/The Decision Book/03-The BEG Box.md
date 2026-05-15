@@ -19,7 +19,7 @@ The four-field matrix distinguishes between four different types of investment:
 	- a financial one (e.g. a vanity project or favor for a friend)
 	- verdict: liquidate
 
-![[IMG_20260514_150513784.jpg]]
+![[The BEG Box.jpg]]
 
 Personal summary: 
 - In first two of the situation you should invest.
