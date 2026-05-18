@@ -1,1 +1,5 @@
 Suppose a user downloads and then visits the landing screen - we need to track him from being annonomous to registering.
+
+Create some kind of token when app initializes first time and keep it stored in local cache and when user logs in send this along with login event with current user_id
+
+So posthog gives every anon user a distinct_id the moment SDk initializes
