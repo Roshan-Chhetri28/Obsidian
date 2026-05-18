@@ -125,12 +125,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/Untitled.md",
+                "file": "00-Inbox/Plan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Plan"
             }
           }
         ],
@@ -320,8 +320,9 @@
   },
   "active": "7ecad9b21524133d",
   "lastOpenFiles": [
-    "03-Resources/The Decision Book/04-The Project Portfolio Matirx.md",
     "00-Inbox/Untitled.md",
+    "00-Inbox/Plan.md",
+    "03-Resources/The Decision Book/04-The Project Portfolio Matirx.md",
     "99-Attachments/The project portfolio matrix.jpg",
     "99-Attachments/The BEG Box.jpg",
     "IMG_20260514_150513784.jpg",
@@ -355,7 +356,6 @@
     "EisenHover matrix.jpg",
     "03-Resources/Unit Testing/82-Things learned  by myself.md",
     "03-Resources/The Decision Book",
-    "conflict-files-obsidian-git.md",
     "99-Attachments/Testing Pyramid.png",
     "03-Resources/Mind Dumps",
     "00-Inbox/Untitled.base",
