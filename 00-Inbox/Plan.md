@@ -2,7 +2,7 @@
 
 - Create some kind of token when app initializes first time and keep it stored in local cache and when user logs in send this along with login event with current user_id
 
-- So post-hog gives every anon user a distinct_id the moment SDK initializes and then if i use posthog.identify() on that distict_id with user_id as parameter then posthog tracks all the event for the distinct_id before signup.
+- So post-hog gives every anon user a distinct_id the moment SDK initializes and then if i use `posthog.identify()` on that `distict_id` with `user_id` as parameter then posthog tracks all the event for the distinct_id before signup.
 
 ## 2. Onboarding page 2 - others where user can specify which course he wants — make analysis
 
@@ -12,4 +12,9 @@
 ## 3. How will we analyse user's choice user selects a course or courses and the Educator he selects
 
 - we can see distribution graph to see which is the most used/clicked button
-- 
+- along with time spent on that page to see if users are reading the options or just clicking randomly
+
+## 4. Once we take the user to the explore page after making his choice we need to track what he does next
+
+- we can capture what page users visit and how much time do they spent on the page
+- same in flashcard component after users turns the flash card count how much time it takes user to click the action buttons.
