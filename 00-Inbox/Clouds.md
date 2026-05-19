@@ -1,0 +1,2 @@
+- Nimbostratus clouds are responsible for rainy days.
+- Cumulonimbus are tall, towering clouds that can produce lightning, tornadoes, and hail.
