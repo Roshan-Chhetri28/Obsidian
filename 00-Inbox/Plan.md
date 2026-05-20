@@ -6,7 +6,7 @@
 
 ## 2. Onboarding page 2 - others where user can specify which course he wants , make analysis
 
-- HeatMap of that page to see which course are being mostly selected.
+- When a user selects a course, fire a custom event like `course_selected` and pass the course name as a property
 
 
 ## 3. How will we analyse user's choice user selects a course or courses and the Educator he selects
@@ -16,10 +16,11 @@
 
 ## 4. Once we take the user to the explore page after making his choice we need to track what he does next
 
-- we can capture what page users visit and how much time do they spent on the page
+- we can capture what page users visit and how much time do they spent on the page.
+- the main motive of explore page is such that user opens the course of their liking ASAP.
 - same in flashcard component after users turns the flash card count how much time it takes user to click the action buttons.
-  
-  
+- we can fire custom event for every thing so we can analyze what user clicks in dashboard.
+- On an Explore page, high dwell time combined with deep scrolling usually indicates **decision paralysis**.
 ## 5. Creating Whole SignUp -> Study Funnel
 - I find post signup to -> study (flashcard) to be most sensitive for long-term user retention.
 - For new users we should track how much time they stay in a particular page the reasons are as follow:
@@ -30,6 +31,6 @@
 	1. we can track rage clicks
 	2. Dead buttons
 	3. we can also monitor which button/feature is being used
-	4. the heat map in study flashcard will tell us how many people click perfect\forgot\difficult\easy (we can use piChart for this )
+- study flashcard will tell us how many people click perfect\forgot\difficult\easy (we can use piChart for this ) by firing custom event `flashcard_answered` with a property `difficulty: 'easy'`.
 - We should also keep the recording of first time users.
 	- The main reason is to see live how user behaves, what actually users are clicking what are they seeing and it will be easier to prove hypothesis.
