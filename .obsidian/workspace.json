@@ -11,10 +11,14 @@
             "id": "14fc7565e6fb4822",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "01-Projects/Spaced Revision/Things to do.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Things to do"
             }
           }
         ]
