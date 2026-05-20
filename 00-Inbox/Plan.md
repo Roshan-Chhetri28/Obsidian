@@ -4,9 +4,9 @@
 
 - So post-hog gives every anon user a distinct_id the moment SDK initializes and then if i use `posthog.identify()` on that `distict_id` with `user_id` as parameter then posthog tracks all the event for the distinct_id before signup.
 
-## 2. Onboarding page 2 - others where user can specify which course he wants — make analysis
+## 2. Onboarding page 2 - others where user can specify which course he wants , make analysis
 
-- What we can do is instead of doing this all one by one we can create onboarding funnel and we can see where users are dropping off 
+- HeatMap of that page to see which course are being mostly selected.
 
 
 ## 3. How will we analyse user's choice user selects a course or courses and the Educator he selects
@@ -31,5 +31,5 @@
 	2. Dead buttons
 	3. we can also monitor which button/feature is being used
 	4. the heat map in study flashcard will tell us how many people click perfect\forgot\difficult\easy (we can use piChart for this )
-
-## 7. In every important pa
+- We should also keep the recording of first time users.
+	- The main reason is to see live how user behaves, what actually users are clicking what are they seeing and it will be easier to prove hypothesis.
