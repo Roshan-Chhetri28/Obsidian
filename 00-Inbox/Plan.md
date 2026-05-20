@@ -30,5 +30,5 @@
 	1. we can track rage clicks
 	2. Dead buttons
 	3. we can also monitor which button/feature is being used
-	4. the heat map in study flashcard will tell us how many people click perfect\forgot\difficult\easy
+	4. the heat map in study flashcard will tell us how many people click perfect\forgot\difficult\easy (we can use piChart for this )
 - 
