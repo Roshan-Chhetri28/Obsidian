@@ -6,4 +6,4 @@
 *Note: If a goal is unattainable, there is no hope, and if it is not challenging it will kot motivate you.*
 
 # **Keep It simple stupid**
-![[IMG_20260518_202024784.jpg]]
+![[The John Whitmore Model.jpg]]

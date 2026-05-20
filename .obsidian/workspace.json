@@ -11,14 +11,12 @@
             "id": "7ecad9b21524133d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "03-Resources/The Decision Book/05- The John Whitmore Model.md",
-                "mode": "source",
-                "source": false
+                "file": "99-Attachments/The John Whitmore Model.jpg"
               },
-              "icon": "lucide-file",
-              "title": "05- The John Whitmore Model"
+              "icon": "lucide-image",
+              "title": "The John Whitmore Model"
             }
           }
         ]
@@ -205,14 +203,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "7ecad9b21524133d",
+  "active": "1a748365f56e7e2e",
   "lastOpenFiles": [
-    "IMG_20260518_202024784.jpg",
+    "03-Resources/The Decision Book/06- The John Whitmore Model.md",
+    "99-Attachments/The John Whitmore Model.jpg",
     "99-Attachments/FeedBack_Analysis.jpg",
     "01-Projects/Spaced Revision/Plan.md",
     "01-Projects/Spaced Revision",
     "00-Inbox/Clouds.md",
-    "03-Resources/The Decision Book/05- The John Whitmore Model.md",
     "03-Resources/The Decision Book/05- The FeedBack Analysis.md",
     "03-Resources/Mind Dumps/Clouds.md",
     "00-Inbox/05- The FeedBack Analysis.md",
