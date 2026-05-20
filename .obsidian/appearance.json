@@ -1,4 +1,6 @@
 {
   "cssTheme": "Primary",
-  "theme": "moonstone"
+  "theme": "system",
+  "accentColor": "",
+  "baseFontSizeAction": true
 }
