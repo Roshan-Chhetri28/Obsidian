@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/Plan.md",
+                "file": "03-Resources/The Decision Book/05- The John Whitmore Model.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Plan"
+              "title": "05- The John Whitmore Model"
             }
           }
         ]
@@ -207,13 +207,14 @@
   },
   "active": "7ecad9b21524133d",
   "lastOpenFiles": [
-    "00-Inbox/Clouds.md",
     "IMG_20260518_202024784.jpg",
-    "IMG_20260518_201226690.jpg",
+    "99-Attachments/FeedBack_Analysis.jpg",
+    "01-Projects/Spaced Revision/Plan.md",
+    "01-Projects/Spaced Revision",
+    "00-Inbox/Clouds.md",
     "03-Resources/The Decision Book/05- The John Whitmore Model.md",
     "03-Resources/The Decision Book/05- The FeedBack Analysis.md",
     "03-Resources/Mind Dumps/Clouds.md",
-    "00-Inbox/Plan.md",
     "00-Inbox/05- The FeedBack Analysis.md",
     "03-Resources/The Decision Book/04-The Project Portfolio Matirx.md",
     "99-Attachments/The project portfolio matrix.jpg",
@@ -251,7 +252,6 @@
     "Untitled 1",
     "03-Resources/Unit Testing",
     "99-Attachments",
-    "05-Daily",
-    "04-Archives"
+    "05-Daily"
   ]
 }
