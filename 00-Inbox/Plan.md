@@ -18,3 +18,17 @@
 
 - we can capture what page users visit and how much time do they spent on the page
 - same in flashcard component after users turns the flash card count how much time it takes user to click the action buttons.
+  
+  
+## 5. Creating Whole SignUp -> Study Funnel
+- I find post signup to -> study (flashcard) to be most sensitive for long-term user retention.
+- For new users we should track how much time they stay in a particular page the reasons are as follow:
+	1. If the user stay in a page more than they previously were we can deduce two things 
+		1. if it is study screen then we are correctly capturing their attention
+		2. if it is any other page that shouldn't take user attention and should be easy to navigate then that page is confusing user
+- We can also monitor heat map for pages in this funnel:
+	1. we can track rage clicks
+	2. Dead buttons
+	3. we can also monitor which button/feature is being used
+	4. the heat map in study flashcard will tell us how many people click perfect\forgot\difficult\easy
+	5. 
