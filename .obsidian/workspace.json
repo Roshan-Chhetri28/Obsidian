@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "200ad92ea70d24f3",
+        "id": "aab7cecb66f488f0",
         "type": "tabs",
         "children": [
           {
-            "id": "14fc7565e6fb4822",
+            "id": "4a2c013e047c9805",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01-Projects/Spaced Revision/Things to do.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Things to do"
+              "title": "New tab"
             }
           }
         ]
@@ -205,9 +201,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "14fc7565e6fb4822",
+  "active": "4a2c013e047c9805",
   "lastOpenFiles": [
     "03-Resources/Unit Testing/00-Content.md",
+    "00-Inbox/Untitled.base",
     "01-Projects/Spaced Revision/Things to do.md",
     "00-Inbox/36 Only test one Thing.md",
     "02-Areas/Ego/SWOT analysis on myself.md",
@@ -243,14 +240,12 @@
     "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
     "03-Resources/Unit Testing/42-46; Section 2; Integration Test.md",
     "03-Resources/Unit Testing/33-Section 4-Writing Good Tests.md",
-    "03-Resources/Unit Testing/30. Introduction to Test Suites.md",
     "SWOT_Analysis.jpg",
     "Eisenhover_Matrix.jpg",
     "99-Attachments/Eisenhover_Matrix.jpg",
     "02-Areas/Ego",
     "03-Resources/The Decision Book",
     "03-Resources/Mind Dumps",
-    "00-Inbox/Untitled.base",
     "03-Resources/Integration Test",
     "Untitled 1",
     "03-Resources/Unit Testing"
