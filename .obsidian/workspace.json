@@ -13,10 +13,10 @@
             "state": {
               "type": "image",
               "state": {
-                "file": "99-Attachments/The John Whitmore Model.jpg"
+                "file": "99-Attachments/FeedBack_Analysis.jpg"
               },
               "icon": "lucide-image",
-              "title": "The John Whitmore Model"
+              "title": "FeedBack_Analysis"
             }
           }
         ]
@@ -203,10 +203,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a748365f56e7e2e",
+  "active": "7ecad9b21524133d",
   "lastOpenFiles": [
-    "03-Resources/The Decision Book/06- The John Whitmore Model.md",
+    "99-Attachments/SWOT_Analysis.jpg",
+    "99-Attachments/Testing Pyramid.png",
+    "99-Attachments/The BEG Box.jpg",
     "99-Attachments/The John Whitmore Model.jpg",
+    "99-Attachments/The project portfolio matrix.jpg",
+    "03-Resources/The Decision Book/06- The John Whitmore Model.md",
     "99-Attachments/FeedBack_Analysis.jpg",
     "01-Projects/Spaced Revision/Plan.md",
     "01-Projects/Spaced Revision",
@@ -215,8 +219,6 @@
     "03-Resources/Mind Dumps/Clouds.md",
     "00-Inbox/05- The FeedBack Analysis.md",
     "03-Resources/The Decision Book/04-The Project Portfolio Matirx.md",
-    "99-Attachments/The project portfolio matrix.jpg",
-    "99-Attachments/The BEG Box.jpg",
     "IMG_20260514_150513784.jpg",
     "03-Resources/The Decision Book/03-The BEG Box.md",
     "03-Resources/The Decision Book/02-The SWOT analysis.md",
@@ -238,7 +240,6 @@
     "03-Resources/Unit Testing/15-Unit Testing (lecture 15).md",
     "SWOT_Analysis.jpg",
     "Eisenhover_Matrix.jpg",
-    "99-Attachments/SWOT_Analysis.jpg",
     "99-Attachments/Eisenhover_Matrix.jpg",
     "02-Areas/Ego",
     "EisenHover matrix.jpg",
