@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/Untitled.md",
+                "file": "00-Inbox/Things to do.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Things to do"
             }
           }
         ],
@@ -221,7 +221,7 @@
   "active": "9051f28f507fe4ea",
   "lastOpenFiles": [
     "99-Attachments/FeedBack_Analysis.jpg",
-    "00-Inbox/Untitled.md",
+    "00-Inbox/Things to do.md",
     "99-Attachments/SWOT_Analysis.jpg",
     "99-Attachments/Testing Pyramid.png",
     "99-Attachments/The BEG Box.jpg",
