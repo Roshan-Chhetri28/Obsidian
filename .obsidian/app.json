@@ -1,6 +1,7 @@
 {
   "newFileLocation": "folder",
   "newFileFolderPath": "00-Inbox",
-  "showInlineTitle": false,
-  "alwaysUpdateLinks": true
+  "showInlineTitle": true,
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "99-Attachments"
 }
