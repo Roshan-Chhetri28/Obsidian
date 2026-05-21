@@ -34,23 +34,9 @@
               "icon": "lucide-file",
               "title": "05- The FeedBack Analysis"
             }
-          },
-          {
-            "id": "931409c39c54a9ea",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "03-Resources/The Decision Book/05- The John Whitmore Model.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "05- The John Whitmore Model"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -216,13 +202,37 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "931409c39c54a9ea",
+  "active": "5cb7db74fa20b603",
   "lastOpenFiles": [
-    "99-Attachments/The project portfolio matrix.jpg",
+    "04-Archive/Templates/Task.md",
+    "03-Resources/The Decision Book/06- The John Whitmore Model.md",
+    "01-Projects/Spaced Revision/Things to do.md",
+    "00-Inbox/Untitled.base",
+    "99-Attachments/The John Whitmore Model.jpg",
+    "/04-Archive/Templates/Task.md",
+    "/03-Resources/The Decision Book/06- The John Whitmore Model.md",
+    "/03-Resources/The Decision Book/05- The FeedBack Analysis.md",
+    "/01-Projects/Spaced Revision/Things to do.md",
+    "00-Inbox/Untitleda.md",
+    "/00-Inbox/Untitled.base",
+    "00-Inbox/36 Only test one Thing.md",
+    "/99-Attachments/The John Whitmore Model.jpg",
+    "/99-Attachments/FeedBack_Analysis.jpg",
+    "99-Attachments/FeedBack_Analysis.jpg",
+    "/99-Attachments",
+    "/00-Inbox/Untitleda.md",
     "03-Resources/The Decision Book/05- The John Whitmore Model.md",
+    "/00-Inbox/36 Only test one Thing.md",
+    "04-Archive/Templates",
+    "04-Archive",
+    "/04-Archive/Templates",
+    "/04-Archive",
+    "/01-Projects/Spaced Revision",
+    "01-Projects/Spaced Revision",
+    "/01-Projects",
+    "99-Attachments/The project portfolio matrix.jpg",
     "/00-Inbox/Clouds.md",
     "03-Resources/Mind Dumps/Clouds.md",
-    "/00-Inbox",
     "IMG_20260518_202024784.jpg",
     "03-Resources/The Decision Book/05- The FeedBack Analysis.md",
     "IMG_20260518_201226690.jpg",
@@ -230,40 +240,17 @@
     "/00-Inbox/Plan.md",
     "/03-Resources/The Decision Book/04-The Project Portfolio Matirx.md",
     "03-Resources/The Decision Book/04-The Project Portfolio Matirx.md",
-    "/03-Resources/The Decision Book",
-    "/03-Resources",
     "99-Attachments/The BEG Box.jpg",
     "00-Inbox/04-The Project Portfolio Matirx.md",
     "03-Resources/The Decision Book/03-The BEG Box.md",
     "/00-Inbox/04-The Project Portfolio Matirx.md",
     "/03-Resources/The Decision Book/03-The BEG Box.md",
     "/02-Areas/Ego/SWOT analysis on myself.md",
-    "/02-Areas/Ego",
-    "/02-Areas",
     "03-Resources/The Decision Book/02-The SWOT analysis.md",
     "/03-Resources/The Decision Book/02-The SWOT analysis.md",
-    "03-Resources/Mind Dumps/A-B testing.md",
-    "03-Resources/Unit Testing/49 - 52 - Test Asynchronous code.md",
-    "03-Resources/Unit Testing/00-Content.md",
-    "03-Resources/Unit Testing/71-81- Diving Deeper on.md",
-    "02-Areas/Ego/Pragmatic Architect.md",
-    "/00-Inbox/Untitled.md",
-    "02-Areas/Ego/SWOT analysis on myself.md",
-    "02-Areas/Finance",
-    "02-Areas/Family",
-    "03-Resources/Unit Testing/15-Unit Testing (lecture 15).md",
-    "02-Areas/Ego",
-    "03-Resources/The Decision Book/The SWOT analysis.md",
     "99-Attachments/Eisenhover_Matrix.jpg",
     "99-Attachments/SWOT_Analysis.jpg",
-    "03-Resources/Unit Testing/82-Things learned  by myself.md",
-    "EisenHover matrix.jpg",
-    "03-Resources/The Decision Book",
-    "IMG_20260512_174129443.jpg",
-    "/03-Resources/Unit Testing",
-    "99-Attachments/Testing Pyramid.png",
     "Untitled.canvas",
-    "/Testing Pyramid.png",
     "/Untitled.canvas"
   ]
 }
