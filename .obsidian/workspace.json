@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/Untitled.md",
+                "file": "00-Inbox/Things to do on next prod app.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Things to do on next prod app"
             }
           }
         ]
@@ -213,10 +213,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a748365f56e7e2e",
+  "active": "e3ee32b7bd7f8546",
   "lastOpenFiles": [
+    "00-Inbox/Laws to follow to work out things smoother.md",
+    "00-Inbox/Anime rating website.md",
     "Untitled.md",
-    "00-Inbox/Untitled.md",
+    "00-Inbox/Things to do on next prod app.md",
     "00-Inbox",
     "Excalidraw/Drawing 2026-05-28 11.53.04.excalidraw.md",
     "Excalidraw",
@@ -255,8 +257,6 @@
     "IMG_20260514_150513784.jpg",
     "03-Resources/The Decision Book/03-The BEG Box.md",
     "03-Resources/The Decision Book/02-The SWOT analysis.md",
-    "03-Resources/The Decision Book/01- The Eisenhower matrix.md",
-    "03-Resources/Unit Testing/56 & 57-Concurrent Test.md",
     "SWOT_Analysis.jpg",
     "Eisenhover_Matrix.jpg",
     "99-Attachments/Eisenhover_Matrix.jpg",
