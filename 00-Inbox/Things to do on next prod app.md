@@ -4,4 +4,5 @@ Run migrations:
 - ~~node database/migrations/addVideoTopicId.js~~
 - node database/selfStudy.js
 -  node database/migrations/removeUnnecessaryNotes.js 
+- node scripts/backfillEmiReminders.js
 The posthog events has been changed so fix the dashboards and backfill accordingly
