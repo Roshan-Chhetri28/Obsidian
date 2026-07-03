@@ -3,7 +3,7 @@
 	- **Principle of Convenience and Principle of Mobile Simplicity** says same thing.
 - **Principle of Suggestion**: It tells we will have greater persuasive power if we offer suggestion at right time. The **principle of Karios** also says same thing.
 	- Suggesting to Buy?
-	- Push Notification for users who logged in but didn't study we should send push notification to them stating: "*You can check our free topics/courses/decks while you think*"—> redirect them directly to UPSC Polity.
+	- Push Notification for users who logged in but didn't study we should send push notification to them stating: "*There are free topics for you to try before you decide*"—> redirect them directly to UPSC Polity.
 - **Principle of Cause and Effect**: Simulations can persuade people to change their attitude by enabling them to observe immediately the link b/w Cause and Effect
 	- We are explaining users the cause and how to trigger it but the effect still remains hidden and is left upon users to figure out which either takes a lot of time or they never figure it out.
 - **Principle of virtual rewards**: Computer simulation that reward target behaviors in a virtual world, by giving virtual rewards for exercise influence people to perform the target behavior more frequently.
