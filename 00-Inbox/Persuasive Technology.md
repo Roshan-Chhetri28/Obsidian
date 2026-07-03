@@ -1,0 +1,9 @@
+- **Principle of Reduction**: using computing technology to reduce complex behaviour to simple tasks increases benifit/cost ratio
+	- Reducing clicks to get to the study
+	- **Principle of Convenience and Principle of Mobile Simplicity** says same thing
+- **Principle of Suggestion**: It tells we will have greater persuasive power if we offer suggestion at right time. The **principle of Karios** also says same thinfg 
+- **Principle of Cause and Effect**: Simulations can persuade people to change their attitude by enabling them to observe immediately the link b/w Cause and Effect
+	- We are explaining users the cause and how to trigger it but the effect still remains hidden and is left upon users to figure out which either takes a lot of time or they never figure it out.
+- **Principle of virtual rewards**: Computer simulation that reward target behaviors in a virtual world, by giving virtual rewards for exercise influence people to perform the target behavior more frequently
+	- Giving RP which can then be exchanged for coupon code or AI credit.
+	- 
