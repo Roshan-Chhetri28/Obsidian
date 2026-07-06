@@ -10,3 +10,9 @@
 | feat/emiPushNotification | Backend, ReactNative, Razorpay           | push notification on 7, 3, 1, 0, day before course expiry date and 1, 3, 7 days after course expires         | Yes: node scripts/backfillEmiReminders.js          |
 | Prod                     | chat                                     | Production CI CD                                                                                             | No                                                 |
 | feat/subscribers-chat    | chat                                     | Introduced a new service, friendshipGate, to check if two users are friends before allowing direct messages. | No                                                 |
+Merge this first
+- [ ] 1. fix/videoDeepLink  
+- [ ] 2. feat/videoDecoupling
+- [ ] 3. feat/emiPushNotification
+- [ ] 4. fix/whatsappPush
+- [ ] 5. Prod
