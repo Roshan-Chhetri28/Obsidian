@@ -12,7 +12,9 @@
 | feat/subscribers-chat    | chat                                     | Introduced a new service, friendshipGate, to check if two users are friends before allowing direct messages. | No                                                 |                                             |
 Merge and check the following
 - [x] 1. fix/videoDeepLink  
+		(Merged ,needs to be checked in Prod itself)
 - [x] 2. feat/videoDecoupling
-- [ ] 3. feat/emiPushNotification
+	- Merged , checked 
+- [ ] 3. feat/emiPushNotification (Merged, needs to be checked)
 - [ ] 4. fix/whatsappPush
 - [ ] 5. Prod
