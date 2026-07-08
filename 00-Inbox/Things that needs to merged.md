@@ -16,5 +16,5 @@ Merge and check the following
 - [x] 2. feat/videoDecoupling
 	- Merged , checked 
 - [x] 3. feat/emiPushNotification (Merged, checked)
-- [ ] 4. fix/whatsappPush (Merged ,needs to be checked in Prod Itself)
-- [ ] 5. Prod
+- [x] 4. fix/whatsappPush (Merged ,needs to be checked in Prod Itself)
+- [x] 5. Prod(Merged, checked)
