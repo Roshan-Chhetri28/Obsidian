@@ -10,7 +10,7 @@ Status: living
 
 > Part of [[00 - Repo Documentation Overview]]
 
-# SpacedRevision — React Native Mobile App (Architecture &amp; Internals)
+# SpacedRevision — React Native Mobile App (Architecture & Internals)
 
 > Deep-dive technical reference for the `react-native-app` repo: the iOS + Android mobile client for the Spaced Revision spaced-repetition learning platform. React Native 0.79.5, React 19, TypeScript, Redux Toolkit, React Navigation v7, WatermelonDB offline layer, and two custom native HLS-video modules.
 
@@ -252,7 +252,7 @@ Hooks live in three places: `src/shared/hooks/` (feature-agnostic), `src/feature
 
 ---
 
-## 7. Native modules &amp; platform
+## 7. Native modules & platform
 
 ### New Architecture is disabled
 Despite naming, the app runs on the **old bridge (Paper)**, not Fabric/TurboModules:
@@ -319,7 +319,7 @@ const ApiService = axios.create({
 
 ---
 
-## 9. Build &amp; CI
+## 9. Build & CI
 
 **GitHub Actions (`.github/workflows/`)** — the real CI:
 - **`ci.yml`** (on PRs to `master`): pnpm + Node 22, `pnpm install --frozen-lockfile --ignore-scripts`, **stubs `constants.ts` from `constants.example.ts`** (real file is git-ignored), then runs **only affected tests**: `jest --changedSince=<baseSha> --ci --forceExit --passWithNoTests`. Comment explains `--onlyChanged` is intentionally omitted (conflicts with `--changedSince` and can hang).
@@ -339,7 +339,7 @@ const ApiService = axios.create({
 
 ---
 
-## 10. Notable patterns &amp; gotchas
+## 10. Notable patterns & gotchas
 
 - **New Architecture OFF, on purpose.** `new_arch_enabled=false`/`fabric_enabled=false` (iOS) and `newArchEnabled=false` (Android) because WatermelonDB needs the legacy bridge. Don't flip these casually — you'll break the offline DB and the `rtn-*` native views.
 - **`constants.ts` is git-ignored and per-environment.** Real credentials/URLs live only locally; CI synthesizes the file (from `.example` for tests, from Secrets for release). A working tree may show localhost/ngrok URLs — that's expected, not production.

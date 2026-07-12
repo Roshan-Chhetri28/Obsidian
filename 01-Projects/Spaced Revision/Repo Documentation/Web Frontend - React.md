@@ -37,7 +37,7 @@ The web frontend is a single-page React 18 app built with Vite 7, Redux (classic
 | `npm run test:coverage` | `vitest run --coverage` (v8, per-glob gates — see §2) |
 | `npm run prepare` | `husky` (installs git hooks) |
 
-### Package manager &amp; runtime — read this carefully
+### Package manager & runtime — read this carefully
 
 There is a real **mismatch between what Volta pins and what the project actually uses**:
 
@@ -50,7 +50,7 @@ There is a real **mismatch between what Volta pins and what the project actually
 
 ---
 
-## 2. Build &amp; tooling
+## 2. Build & tooling
 
 ### Vite (`vite.config.js`)
 
@@ -282,7 +282,7 @@ Feature-based folders under `src/components/` — **45 folders** (the inventory 
 
 ---
 
-## 7. Contexts &amp; cross-cutting
+## 7. Contexts & cross-cutting
 
 ### `src/context/TabStateContext.jsx` — the only React context
 
@@ -393,7 +393,7 @@ Exactly one, registered in `actions/auth.js`: the response interceptor for the s
 
 ---
 
-## 10. Notable patterns &amp; gotchas
+## 10. Notable patterns & gotchas
 
 1. **`ecosystem.config.js` is the API-URL config, not PM2** — and it's **gitignored**, so it's absent on CI (Vitest aliases it to `Test/stubs/ecosystemConfig.js`). If a fresh clone's dev server can't resolve `address`, this file is why.
 2. **pnpm is the real package manager**, despite Volta pinning yarn/Node 18 and the workspace CLAUDE.md saying "Yarn." Install with pnpm; CI runs `--frozen-lockfile` on Node 20 and a stale `pnpm-lock.yaml` fails the build.

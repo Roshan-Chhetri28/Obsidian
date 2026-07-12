@@ -17,7 +17,7 @@ Deep technical reference for the primary backend service. This is the authoritat
 
 ## 1. Overview
 
-**What it does.** A monolithic Express REST API covering the entire product surface: auth/OAuth, courses → subjects → topics → notes/cards/MCQs curriculum, spaced-repetition scheduling, ELO difficulty rating, payments (Razorpay + IAP + EMI), GST/invoicing, live classes, video (HLS), community/discussions/support/doubts, decks &amp; sharing, test series, answer-writing, push notifications, WhatsApp, admin analytics, and WatermelonDB offline sync for the mobile app.
+**What it does.** A monolithic Express REST API covering the entire product surface: auth/OAuth, courses → subjects → topics → notes/cards/MCQs curriculum, spaced-repetition scheduling, ELO difficulty rating, payments (Razorpay + IAP + EMI), GST/invoicing, live classes, video (HLS), community/discussions/support/doubts, decks & sharing, test series, answer-writing, push notifications, WhatsApp, admin analytics, and WatermelonDB offline sync for the mobile app.
 
 | Aspect | Value |
 |---|---|
@@ -126,7 +126,7 @@ Fully self-contained in `routes/api/auth.js:149`:
 
 ---
 
-## 4. Authentication &amp; authorization
+## 4. Authentication & authorization
 
 ### JWT issuance
 Login endpoints (password, Google id-token, Android, Apple id-token, OAuth callbacks) all sign the same minimal payload:
@@ -226,7 +226,7 @@ There are **two independent Redis clients** for two distinct purposes:
 
 ---
 
-## 7. Background jobs &amp; cron
+## 7. Background jobs & cron
 
 Two orthogonal gates control background work (so only one process instance runs them): **`RUN_ELO_CRON`** for the cron and **`RUN_CRON`** for the BullMQ workers.
 
@@ -261,19 +261,19 @@ All share `sharedRedis`. Four queues:
 | **Razorpay** | `controllers/Payment.controller.js`, `controllers/checkout.controller.js`, `routes/api/payment.js`; `RAZORPAY_KEY_ID/SECRET` | Order creation + verification. **Webhooks are handled by the separate `razorpay-webhook-server`**, not here. Accrual math is shared/copy-synced (`services/accrualPolicy.js`, `accrualLedger.js`, `accrualValidation.js`). |
 | **In-App Purchase** | `sevices/iap.service.js` (~40 KB), `controllers/iap.controller.js`, `validators/iap.validator.js`, `routes/api/iap.routes.js` | Apple/Google receipt validation. Mounted `app.use('/api/iap', auth, …)`. |
 | **AWS S3 / CloudFront** | `config/s3Client.js`, `utils/signedUrlGenerator.util.js`, `utils/s3UploadHandler.util.js` | `generateS3PutSignedUrl` / `generateS3GetSignedUrl` (presigned S3) and `generateCloudFrontSignedUrl` / `generateDownloadUrl` (CDN, `@aws-sdk/cloudfront-signer`). Buckets `AWS_S3_BUCKET_NAME_PDFS` / `_RAW_VIDEOS`. |
-| **File uploads** | `express-fileupload` (global, **skips `/api/video`** so multer can parse those), `config/multer.js` | `imageUploader` = memoryStorage, 10 MB, jpg/png/jpeg only; `pdfUploader` = diskStorage under `uploads/pdfs`, `.pdf` only. Ad-hoc `/api/uploadImage` &amp; `/api/uploadCourseImage` write to local disk. |
+| **File uploads** | `express-fileupload` (global, **skips `/api/video`** so multer can parse those), `config/multer.js` | `imageUploader` = memoryStorage, 10 MB, jpg/png/jpeg only; `pdfUploader` = diskStorage under `uploads/pdfs`, `.pdf` only. Ad-hoc `/api/uploadImage` & `/api/uploadCourseImage` write to local disk. |
 | **Firebase FCM** | `utils/fireBase.js`, `sevices/PushToUser.service.js`, `sevices/FcmToken.service.js`, `sevices/NotificationRouter.service.js` | Admin SDK from `FIREBASE_ADMIN_KEY_PATH`. **In dev (no key) it exports a mock** `messaging()` so push calls no-op. Multicast via `sendEachForMulticast`. |
 | **WhatsApp** | `routes/api/whatsapp.js`; `WHATSAPP_ACCESS_TOKEN`, `_PHONE_NUMBER_ID`, `_BUSINESS_ACCOUNT_ID` | Cloud API messaging + SSE event stream. |
 | **VideoSDK** (live classes) | `controllers/live_classes.controller.js`, `sevices/LiveClassQueryExecutor.js`; `VIDEOSDK_API_KEY/SECRET_KEY/API_ENDPOINT` | Live-class rooms. |
 | **PostHog (server)** | `config/posthogServer.js` (`POSTHOG_PROJECT_API_KEY`, host default `posthog.spacedrevision.in`) | Server-side `capture()`; disabled/no-op if key unset. |
 | **Prometheus** | `config/prometheus.client.js` | Custom registry, prefix `SpacedRevision_Node_Server_`. `httpMetricsMiddleware` (early in the chain) + DB-query + Redis-op metrics. **`GET /metrics`** protected by `METRICS_ACCESS_KEY` (warns loudly if unset). |
-| **Loki + Winston** | `config/loki.logger.js` | **Dev = console only (never ships to Loki)**; prod = `winston-loki` to `LOKI_HOST`. Helpers `logger.logError`, `logRequestError`, `handleAndRespond`. Request-logging middleware in `server.js` skips `/health` &amp; `/metrics`. `morgan('dev')` also enabled. |
+| **Loki + Winston** | `config/loki.logger.js` | **Dev = console only (never ships to Loki)**; prod = `winston-loki` to `LOKI_HOST`. Helpers `logger.logError`, `logRequestError`, `handleAndRespond`. Request-logging middleware in `server.js` skips `/health` & `/metrics`. `morgan('dev')` also enabled. |
 | **Swagger / ReDoc** | `config/swagger.config.js`, `routes/docs/*.openapi.js` | `swagger-jsdoc` scans `./routes/**/*.js` + `server.js`. Served at **`/api-docs`** (Swagger UI), **`/redoc`** (self-hosted `public/redoc.standalone.js`, with a relaxed per-route CSP), raw spec at **`/api-docs.json`**. Security scheme `authToken` = header `x-auth-token`. |
 | **Health** | `GET /health` | `{ status, timestamp, uptime }`, always 200. |
 
 ---
 
-## 9. Notable patterns, conventions &amp; gotchas
+## 9. Notable patterns, conventions & gotchas
 
 - **Misspelled `sevices/` is real and load-bearing.** There are two sibling directories: `services/` (correctly spelled, 10 files — sync, accrual, activity analytics, IST calendar) and **`sevices/`** (misspelled, 14 files — `QueryExecuterFactory.js`, `iap.service.js`, `invoice.service.js`, `PushToUser.service.js`, `NotificationRouter.service.js`, `CouponExecutor.js`, `RewardPointsService.js`, `address.service.js`, `deck.service.js`, `gstr1.service.js`, `FcmToken.service.js`, …). Both are imported throughout (e.g. `require('../sevices/PushToUser.service')` in the workers). Do not "fix" the spelling without updating every import.
 - **`config/ appleAuthConfig.js` has a literal leading space in its filename.** Imports must match exactly: `require("./config/ appleAuthConfig")` / `require("../../config/ appleAuthConfig")`.
