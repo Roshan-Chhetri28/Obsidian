@@ -24,3 +24,13 @@ Status:
 	4. Refactor: study-reminder body logic extracted to notifications/studyReminderMessage.js
 	5. Tests added: mcqAddedWorker.test.js (5), studyReminderMessage.test.js (9) — full suite green (774 pass)
 	6. add env vars on prod (defaults exist in scheduler, set explicit): `MCQ_NOTIF_HOUR=17`, `MCQ_NOTIF_MINUTE=30`
+
+5. Videos link to subject_id (spaced-revision-sern-backend): run 3 migrations on prod DB — videos group by subject instead of topic
+	1. `node database/migrations/addVideoSubjectId.js` — adds subject_id + FK + index to `video` and `youtube`, backfills from topics via topic_id
+	2. `node database/migrations/addVideoSubjectOrder.js` — creates `video_subject_order` + `youtube_subject_order` (per-subject video ordering, no backfill)
+	3. `node database/migrations/addVideoHidingSubjectId.js` — adds subject_id + FK + index to `video_hiding_mapping` and `youtube_hiding_mapping`, backfills from topics
+	4. run in that order; all idempotent — safe to re-run, second run is a no-op
+	5. must run BEFORE the backend deploy — the new `/api/video/all/*` queries read subject_id and the order tables, so the routes 500 without them
+	6. `topic_id` is NOT dropped and is STILL WRITTEN — it is the key cloned courses resolve through via topic_mappings. A video with a null topic_id can never reach a clone
+	7. expected backfill: video 1196/1196, youtube 286/290 (4 rows have no topic_id, stay invisible as they are today)
+	8. rollback = drop the added columns + drop the 2 new tables; no rows are deleted by any of the three
