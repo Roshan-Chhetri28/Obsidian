@@ -32,3 +32,6 @@ Status:
 	4. idempotent — re-run skips the backfill once the order tables are non-empty (it is all-or-nothing on whole-table emptiness, NOT per-bucket)
 	5. order backfill preserves the order educators actually saw (ranked by display topic NAME -> priority -> id); to rebuild from scratch, empty both order tables first
 	6. heads-up: `GET /api/video/all/:course_id` returns slightly MORE videos after this (432 vs 429 for course 2160, 379 vs 369 for 1112) — dedupe is now by (kind, id) not by URL, so distinct rows sharing a URL stop being silently swallowed. Expected, not a bug.
+	7. After change: 
+		1. Buckets: ORDER BY subjects.priority, subjects.name — surfaced as the new subject_order field.
+		2. Within a bucket: the order tables' priority 1..N, then upload date ASC, then id — one sequence spanning HLS and YouTube, seeded from the old name-based order so nothing visibly moved.
