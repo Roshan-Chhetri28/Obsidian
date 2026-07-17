@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Things to do on next prod app (after 30th june)"
             }
+          },
+          {
+            "id": "7b2a6435b10d40cb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-Inbox/Vector Shift Video Script.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Vector Shift Video Script"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -187,8 +202,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "33e993a054839c48",
+  "active": "7b2a6435b10d40cb",
   "lastOpenFiles": [
+    "01-Projects/Spaced Revision/Things to do on next prod app (after 30th june).md",
+    "00-Inbox/Vector Shift Video Script.md",
     "/01-Projects/Spaced Revision/Things to do.md",
     "/01-Projects/Spaced Revision",
     "/01-Projects",
@@ -197,7 +214,6 @@
     "/00-Inbox",
     "01-Projects/Spaced Revision/Things to do.md",
     "00-Inbox/Things to do.md",
-    "01-Projects/Spaced Revision/Things to do on next prod app (after 30th june).md",
     "01-Projects/Spaced Revision/Repo Documentation/Web Frontend - React.md",
     "01-Projects/Spaced Revision/Repo Documentation/React Native App.md",
     "01-Projects/Spaced Revision/Repo Documentation/Chat Backend.md",
