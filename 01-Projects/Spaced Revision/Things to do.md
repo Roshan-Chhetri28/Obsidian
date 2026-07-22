@@ -35,3 +35,13 @@ Status:
 	7. After change: 
 		1. Buckets: ORDER BY subjects.priority, subjects.name — surfaced as the new subject_order field.
 		2. Within a bucket: the order tables' priority 1..N, then upload date ASC, then id — one sequence spanning HLS and YouTube, seeded from the old name-based order so nothing visibly moved.
+6. FCM token bloat fix (spaced-revision-sern-backend, branch push/version): staged, ORDER IS LOAD-BEARING
+	1. Root cause: client sends snake_case `device_id`/`app_version` but route read camelCase → device_id stored NULL on 100% of tokens → per-device dedup dead → token rotations pile up new active rows (user 8483 had 90 active tokens; ~471 active dupes overall)
+	2. Stage 1 (DONE in code, commit + deploy): `push_tokens.js` reads snake_case; `FcmToken.service.js` deactivates a device's other live tokens on register; OpenAPI updated; tests green (FcmToken.test.js 3, push_tokens.test.js 5)
+	3. Stage 1 verify after deploy: `SELECT SUM(device_id IS NOT NULL) has_dev, COUNT(*) total FROM fcm_tokens WHERE is_active=1 AND created_at > '<deploy_ts>';` → has_dev must equal total for post-deploy rows
+	4. Stage 2 (ONLY after Stage 1 is live on prod, else bloat regrows): run one-time cleanup sweep on PRIMARY (MySQL MCP is a read-only replica) — new script `database/migrations/dedupeFcmTokens.js`
+		1. retire ~471 active dupes: keep newest per (user_id, platform), set is_active=0 on the rest
+		2. optional purge ~1901 dead rows: `DELETE ... WHERE is_active=0 AND last_seen_at < NOW()-INTERVAL 90 DAY`
+		3. dry-run SELECT counts first, wrap in transaction, back up fcm_tokens, off-peak
+		4. verify: `SELECT COUNT(*) FROM (SELECT 1 FROM fcm_tokens WHERE is_active=1 GROUP BY user_id,platform HAVING COUNT(*)>1) d;` → 0
+	5. Stage 3 (app release, react-native-app): `getDeviceId()` → `react-native-device-info` `getUniqueId()` (dep already installed) for stable IDFV/ANDROID_ID that survives reinstall; replace legacy random id for all installs; fix non-persisted fallback collision; then re-run Stage 2 sweep once to clear migration re-bloat
