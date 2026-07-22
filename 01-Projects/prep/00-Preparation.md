@@ -1,0 +1,5 @@
+- [ ] google meet test
+- [ ] script prepared and written 
+- [ ] code a basic agent to revise
+- [ ] revise ML concepts in abstract
+- [ ] Look at the Features of linear regression
