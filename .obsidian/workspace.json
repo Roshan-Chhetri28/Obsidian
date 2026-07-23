@@ -83,12 +83,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Inbox/Untitled.md",
+                "file": "00-Inbox/Plan Self study.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "Plan Self study"
             }
           }
         ],
@@ -183,7 +183,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00-Inbox/Untitled.md",
+                "file": "00-Inbox/Plan Self study.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -193,7 +193,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Untitled"
+              "title": "Backlinks for Plan Self study"
             }
           },
           {
@@ -286,7 +286,7 @@
   "active": "429fee17c510af01",
   "lastOpenFiles": [
     "01-Projects/prep/00-Preparation.md",
-    "00-Inbox/Untitled.md",
+    "00-Inbox/Plan Self study.md",
     "01-Projects/prep/Architectural Flow Diagram.md",
     "01-Projects/prep/Agentic flow diagram.md",
     "00-Inbox/Untitled 1.md",
