@@ -45,3 +45,21 @@ Status:
 		3. dry-run SELECT counts first, wrap in transaction, back up fcm_tokens, off-peak
 		4. verify: `SELECT COUNT(*) FROM (SELECT 1 FROM fcm_tokens WHERE is_active=1 GROUP BY user_id,platform HAVING COUNT(*)>1) d;` → 0
 	5. Stage 3 (app release, react-native-app): `getDeviceId()` → `react-native-device-info` `getUniqueId()` (dep already installed) for stable IDFV/ANDROID_ID that survives reinstall; replace legacy random id for all installs; fix non-persisted fallback collision; then re-run Stage 2 sweep once to clear migration re-bloat
+
+7. Meta Ads attribution — Android (react-native-app + spaced-revision-sern-backend): Meta SDK + Conversions API. Plan approved, NOT started.
+	1. Why: web pixel only fires `Lead` on app-store badge press (intent, not installs or revenue). RN app has ZERO Meta instrumentation → UPSC App Promotion campaigns cannot run or be measured at all.
+	2. Scope: **Android only**. iOS out of scope — ~20% of IAP purchases stay invisible to Meta. No ATT prompt, no refund events, no extra screens.
+	3. BLOCKING prereq — Meta Business Manager (human steps, nothing else works until done):
+		1. register app with Android package name (`applicationId` from `android/app/build.gradle`)
+		2. link app → ad account, add as data source on EXISTING dataset `973157488384012` — do NOT create a second pixel
+		3. collect `facebook_app_id` + `facebook_client_token`; generate system-user access token for CAPI
+		4. Events Manager: rank AEM 8-event priority — Purchase top, CompleteRegistration second
+		5. create 2 Custom Conversions filtered on `content_category` = upsc / sikkim_psc
+	4. New env vars on prod backend: `META_CAPI_ACCESS_TOKEN`, `META_DATASET_ID`, `META_CAPI_ENABLED` (kill switch). Add to `.env.example` too.
+	5. Requires a new **Play Store release** — native change (`strings.xml`, AndroidManifest meta-data + `AD_ID` permission). The CAPI half ships independently of the app release.
+	6. Admin task (data, not code): only 12 of 1391 courses carry a UPSC/SPSC tag, and ~20% of actual IAP purchases sit on untagged courses. Tag them via `course_tag_selection` or the cohort split leaks. Tags: UPSC = id 2, SPSC = id 7. Untagged purchases will send `content_category: 'untagged'` + a warning log naming the course_id.
+	7. Campaigns optimise for `CompleteRegistration` FIRST, not Purchase — only ~55 IAP purchases all-time, far below Meta's ~50/wk/ad-set learning threshold. Switch the goal to Purchase once volume clears.
+	8. RISK — purchase value correctness: `sevices/iap.service.js:383` hardcodes currency "INR", the price comes from the courses table NOT the store, and `:890-891` applies a minor-unit heuristic (`price >= 100 ? price/100 : price`). Send the real store price (`priceAmountMicros`, already available at `iapService.ts:604`) through the verify payload instead. A wrong value is worse than no value — bidding acts on it.
+	9. Dedupe: `event_id` = Google Play `transactionId`, identical on the client SDK event and the server CAPI event. Get this wrong and every purchase counts twice → ROAS inflated by exactly 2×, easy to miss.
+	10. Known dead end for any future iOS work: iOS purchases never reach the main backend (`iapService.ts:224` skips server verification). iOS entitlements are granted by Apple ASSN into `razorpay-webhook-server/src/services/apple.subscription.service.js:646`. Start there, not in the main backend.
+	11. Full plan: `/Users/stardust/.claude/plans/concurrent-dreaming-micali.md`
