@@ -135,8 +135,10 @@ Blocks everything.
 |---|---|
 | `res/values/strings.xml` | `facebook_app_id`, `facebook_client_token` (public values shipped in the APK — safe to commit, same as the existing `GOOGLE_WEB_CLIENT_ID`) |
 | `AndroidManifest.xml` | `com.facebook.sdk.ApplicationId`, `ClientToken`, `AutoInitEnabled=true`, `AutoLogAppEventsEnabled=true`, `AdvertiserIDCollectionEnabled=true`; plus `com.google.android.gms.permission.AD_ID` |
-| `MainApplication.kt` | one line after `SoLoader.init(...)`: `AppEventsLogger.activateApp(this)` |
+| `MainApplication.kt` | **nothing** — see below |
 | `proguard-rules.pro` | **critical** — see below |
+
+**Correction (found during implementation):** an earlier draft called for `AppEventsLogger.activateApp(this)` in `MainApplication.kt`. That **does not compile** — `react-native-fbsdk-next` declares `com.facebook.android:facebook-android-sdk` as `implementation`, so its classes are not on the app module's compile classpath (`Unresolved reference 'appevents'`). It is also unnecessary: `AutoInitEnabled` + `AutoLogAppEventsEnabled` make the SDK initialise from its own ContentProvider and log install/activate via `ActivityLifecycleCallbacks`. The manual call is the legacy pre-auto-init path. Fixing it by re-declaring the SDK in `app/build.gradle` was rejected — it would duplicate a floating `18.+` version and invite drift. A comment in `MainApplication.kt` records why nothing is there.
 
 `AutoLogAppEventsEnabled=true` produces the automatic **install** and **activate** events — the entire top of the funnel. Never disable.
 
