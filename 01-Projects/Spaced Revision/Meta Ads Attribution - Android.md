@@ -89,8 +89,11 @@ Critically: filtering the optimisation event down to the UPSC slice would cut 30
 | Source | Hash |
 |---|---|
 | Debug keystore (`android/app/debug.keystore`, alias `androiddebugkey`) | `TgbDzI280dxqzC7l+1cdLSRfSRw=` |
-| **Play App Signing key** (SHA-1 `C4:E5:…:AC:E2`) — **the production one** | `xOXMRk+mZcGiQ8YT1DXiUd5rrOI=` |
-| Upload key (`spaced_signed_keys.jks`, alias `release`) | *pending* |
+| **Production** — SHA-1 `C4:E5:CC:46:4F:A6:65:C1:A2:43:C6:13:D4:35:E2:51:DE:6B:AC:E2` | `xOXMRk+mZcGiQ8YT1DXiUd5rrOI=` |
+
+**Both roles share one certificate.** Play Console shows identical MD5/SHA-1/SHA-256 for the *App signing key* and the *Upload key* — the team supplied its own key to Play App Signing rather than letting Google generate one. So two hashes give full coverage and nothing is outstanding.
+
+⚠️ Play Console offers "Upgrade your app signing key". If that is ever done, this fingerprint changes and Meta silently stops trusting production builds. Re-register on any key rotation.
 
 Convert a Play Console SHA-1 with:
 ```bash
