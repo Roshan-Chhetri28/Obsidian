@@ -164,9 +164,11 @@ At `:284` there is no price in scope. Add a module-level `pendingPurchasePrices`
 
 `event_id: purchase.transactionId` — the dedupe key shared with the server.
 
+**Cohort on the client copy.** Both copies share an `event_id`, Meta keeps one, so if only the server copy carried `content_category` the label would be non-deterministic. The `/iap/verify-purchase/android` **response** therefore returns the resolved cohort and the client attaches it — no extra round trip, since `:284` already sits inside the `if (response.data.success)` branch. Both copies then carry the same server-derived value.
+
 ### Deleted from the earlier design
 
-The client no longer computes cohort. A hardcoded `UPSC_COURSE_IDS` map was going to drift from the DB; the server now resolves cohort and sends it down in the sync response. That map and its drift caveat are gone.
+The client no longer computes cohort. A hardcoded `UPSC_COURSE_IDS` map was going to drift from the DB; the server now resolves it and hands it back — in the sync response for `Activated`, in the verify-purchase response for `Purchase`. That map and its drift caveat are gone.
 
 ---
 
@@ -251,7 +253,7 @@ Payload: `POST /{META_GRAPH_VERSION}/{META_DATASET_ID}/events`, `action_source: 
 - `Test/controllers/sqliteActivation.test.js` — crossing 10 sets the column and returns the flag once; a second sync returns no flag; a batch jumping 0 → 25 fires exactly once; an already-activated user is untouched; **a resolver throw does not roll back the sync transaction**.
 - `Test/services/iapMetaHook.test.js` — `sendPurchase` called once after commit, **not** on the duplicate branch, rejection doesn't reject `processAndroidPurchase`.
 
-Docs: `docs/DATABASE_SCHEMA.md` (new column), `docs/ARCHITECTURE.md` (new services, env vars, fire-and-forget contract), `docs/API_INVENTORY.md` + `routes/docs/iap.openapi.js` (new optional request fields, new sync response fields), `docs/DOMAIN_GLOSSARY.md` (cohort, activation), CLAUDE.md Domain gotcha (*Meta CAPI value must never come from `iap_purchases.amount`*).
+Docs: `docs/DATABASE_SCHEMA.md` (new column), `docs/ARCHITECTURE.md` (new services, env vars, fire-and-forget contract), `docs/API_INVENTORY.md` + `routes/docs/iap.openapi.js` (new optional request fields; new `cohort` field on the verify-purchase response; new `meta_activated` + `cohort` fields on the sync response), `docs/DOMAIN_GLOSSARY.md` (cohort, activation), CLAUDE.md Domain gotcha (*Meta CAPI value must never come from `iap_purchases.amount`*).
 
 ---
 
