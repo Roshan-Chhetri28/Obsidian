@@ -1,5 +1,5 @@
 ---
-Date: 2026-07-29
+Date: 2026-07-30
 tags:
   - Task
   - Plan
@@ -8,50 +8,66 @@ Status:
   - Important
 ---
 
-# Meta Ads Attribution — Android App (SDK + Conversions API)
+# Meta Ads Attribution — Android (SDK + Conversions API)
 
 ## Context
 
-Meta ads currently fire a single `Lead` pixel event when someone presses an app-store badge on the website (`spaced-revision-sern-frontend/index.html:157`, helpers in `src/utils/metaPixel.js:9`). That measures **intent only** — nothing about who installed, registered, or paid.
+Meta ads currently fire one `Lead` pixel event when someone presses an app-store badge on the website (`spaced-revision-sern-frontend/index.html:157`, helpers in `src/utils/metaPixel.js:9`). That is the last thing Meta ever learns about that person. They install, register, study, maybe pay — and none of it exists as far as Meta is concerned, because the RN app has **zero Meta instrumentation** (verified: no fbsdk in `package.json`, `node_modules`, Podfile, `Info.plist`, gradle, or `AndroidManifest.xml`).
 
-The UPSC cohort is meant to install the app and purchase in-app; Sikkim PSC (SPSC) stays on the website. The RN app has **zero Meta instrumentation**, so Meta cannot attribute a single install or in-app purchase, and App Promotion campaigns cannot run at all.
+Three consequences:
 
-Goal: make Android installs, registrations and purchases visible to Meta, attributed to the ad that produced them, split by cohort.
+1. **App Promotion campaigns cannot run at all** — Meta requires a registered app with an SDK.
+2. **`Lead` measures the wrong thing** — a badge press is intent, not an install.
+3. **No ad can be tied to a student.** Every number stops at the badge.
+
+Goal: make Android installs and **genuine study engagement** visible to Meta, attributed to the ad that produced them.
+
+---
+
+## The central decision: optimise on study, not purchase
+
+Meta's algorithm needs roughly **50 conversions per ad set per week** to exit the learning phase. Measured from PostHog (Android, 28 days, test users excluded):
+
+| Event | Events | People |
+|---|---|---|
+| `flashcard_answered` | 65,572 | 223 |
+| `flashcard_session_started` | 12,353 | 277 |
+| `user_registered` | 250 | 249 |
+| `purchase_completed` | **8** | 6 |
+
+Purchase is ~2/week. A Purchase-optimised ad set would never leave learning — not slowly, never. Registration is ~62/week but weak: many register and never open a card.
+
+**Raw study volume is a trap.** 3,088 sessions/week come from only ~69 unique people. Meta counts *events*, not people, so optimising on a repeatable event teaches it to find people who study a lot — i.e. your existing retained users. You would spend budget re-acquiring people you already have.
+
+So the event must fire **once per person, ever**. First-time studiers per week (Android): 22, 31, 95, 58, 46, 27, 32 — typically **30–46**. Still under 50, but ad spend adds new users on top, which is the direction you want it to grow.
 
 ## Decisions taken
 
 | Decision | Choice |
 |---|---|
 | Platform | **Android only.** iOS entirely out of scope. |
-| Approach | Meta SDK (`react-native-fbsdk-next`) + server-side Conversions API. No MMP. |
+| Approach | Meta SDK (`react-native-fbsdk-next`) + Conversions API. No MMP. |
+| **Primary conversion** | **`Activated` — 10 flashcards answered, once per user** |
+| Fallback goal | `CompleteRegistration`, if activation volume proves thin per ad set |
+| Purchase | Still sent (client + server), **reporting only** |
+| Activation gate | **`users.meta_activated_at` column** — survives reinstalls |
+| Cohort label | **UPSC only, reporting only** — never an optimisation filter |
+| Web cohort source | Explicit `?cohort=upsc` on UPSC ad URLs |
+| App cohort source | Server-derived from the course studied → onboarding pick → `untagged` |
 | ATT / extra screens | None |
-| Campaign optimisation | `CompleteRegistration` first; switch to `Purchase` when volume clears ~50/wk per ad set |
-| Purchase event | Initial purchase only — Android uses `type: 'in-app'` consumables, **no renewals exist** |
-| Refunds | **Out of scope** |
-| Cohort split | Event parameters + Custom Conversions on one dataset. **No second pixel.** |
-| Untagged course | Send `content_category: 'untagged'` **and** log a warning naming the course_id |
+| Refunds, lookalike seeds, web `Purchase`, SPSC labelling | **Out of scope** |
 
-## Verified ground truth
+### Why the cohort label is reporting-only
 
-| Fact                                                | Evidence                                                                                                                      |
-| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Android is the only client→server purchase path     | `iapService.ts:184` posts to `/iap/verify-purchase/android`; iOS branch at `:224` returns before any network call             |
-| Android products are consumables, not subscriptions | `type: 'in-app'`, `finishTransaction({ isConsumable: true })` — every Purchase is an initial purchase                         |
-| Purchase hook point                                 | `iapService.ts:284` — beside `posthog.capture('purchase_completed', { platform: 'android' })`                                 |
-| Server commit point                                 | `sevices/iap.service.js:748`, Redis invalidation `:753-754`                                                                   |
-| Duplicate-purchase branch commits and returns early | same file `:583-616` — **must not** fire CAPI                                                                                 |
-| Registration emitters (only two)                    | `authSlice.ts:30` (email), `useAuth.ts:91` (OAuth, gated on backend `isNewUser`)                                              |
-| Package name                                        | `com.spacedrevision`, activity `com.spacedrevision.MainActivity`                                                              |
-| Cohort course IDs (live)                            | UPSC = 2190, 2201, 2257, 100044 · SPSC = 370, 2160, 2166, 2185, 2204, 100035, 100036, 100037                                  |
-| Untagged purchase share                             | 7 of 44 Android rows (16%), dominated by course 225 "B.Ed. Entrance Exam"                                                     |
-| Match-quality inputs                                | email 100%, name 99.7% (single column), phone 55.7%, no dob/gender. 217 unmatchable emails (166 Apple relay + 51 `@sprv.com`) |
-| Build constraints                                   | `enableProguardInReleaseBuilds = true`, `newArchEnabled = false`, hermes on, pnpm + patch-package, autolinking on             |
+UPSC gets its own campaign, and Ads Manager already splits every number by campaign. The label does not tell you which ad worked — the campaign does. It tells you what the *user turned out to be*, which differs when a UPSC ad brings someone who then studies SPSC content.
 
-## Known limitations (accepted)
+Critically: filtering the optimisation event down to the UPSC slice would cut 30–46 activations/week further below Meta's threshold. **Narrowing the optimisation signal would actively hurt delivery.** Campaigns optimise on unfiltered `Activated`.
 
-- **iOS invisible to Meta** — ~20% of IAP purchases. iOS purchases never reach the main backend (`iapService.ts:224`); entitlements come from Apple ASSN into `razorpay-webhook-server/src/services/apple.subscription.service.js:646`. Future iOS work starts there.
-- **Volume below Meta's learning threshold** — ~55 IAP purchases all-time. Hence registration-first optimisation.
-- Only 12 of 1391 courses carry a UPSC/SPSC tag. Admin tagging pass needed, not a code fix.
+### Known limitations (accepted)
+
+- **iOS invisible to Meta** (~20% of IAP purchases). iOS purchases never reach the main backend — `iapService.ts:224` skips server verification; entitlements come from Apple ASSN into `razorpay-webhook-server/src/services/apple.subscription.service.js:646`. Future iOS work starts there.
+- Only 12 of 1391 courses carry a cohort tag; ~16–20% of purchases are on untagged courses. Admin tagging pass needed.
+- Activation is gated on the **app sync path only**. Someone who studies on the web first (`routes/api/card.js`) will not fire it — deliberate, since the campaign measures app acquisition.
 
 ---
 
@@ -59,15 +75,20 @@ Goal: make Android installs, registrations and purchases visible to Meta, attrib
 
 Blocks everything.
 
-1. Create/reuse a Meta app, add the **Android** platform only. Package `com.spacedrevision`, activity `com.spacedrevision.MainActivity`. Add release **and** upload key hashes (`keytool -exportcert … | openssl sha1 -binary | openssl base64`) — the SDK is not trusted without them.
+1. Create/reuse a Meta app, **Android platform only**. Package `com.spacedrevision`, activity `com.spacedrevision.MainActivity`. Add release **and** upload key hashes — the SDK is untrusted without them.
 2. Record **App ID** and **Client Token** (Settings → Advanced).
-3. Events Manager → dataset `973157488384012` → Connect data source → add the Android app. **Do not create a second pixel.**
-4. Business Settings → assign the ad account to both the app and the dataset (Manage permission), else App Promotion campaigns can't select the app.
-5. System user `capi-server` → assets: dataset (Manage) + app (Manage) → generate non-expiring token with `ads_management` + `business_management`. This is `META_CAPI_ACCESS_TOKEN`.
-6. Event priority ranking: `Purchase`, `CompleteRegistration`, `InitiateCheckout`, `CompleteTutorial`, `ViewContent`, …
-7. Custom Conversions on the dataset: `Reg — UPSC`, `Reg — Sikkim PSC`, `Purchase — UPSC`, `Purchase — Sikkim PSC`, plus `Purchase — Untagged` as an ops alarm.
+3. Events Manager → dataset `973157488384012` → Connect data source → add the app. **Do not create a second pixel.**
+4. Business Settings → assign the ad account to **both** the app and the dataset (Manage), else App Promotion campaigns can't select the app.
+5. System user `capi-server` → assets: dataset + app (Manage) → non-expiring token with `ads_management` + `business_management`. This is `META_CAPI_ACCESS_TOKEN`.
+6. Custom Conversion `Activated — UPSC` (filter `content_category = upsc`) **for reporting only**. Do not point a campaign at it.
 
-⚠️ Do **not** reuse the Meta app behind `WHATSAPP_ACCESS_TOKEN` / `META_APP_SECRET` in the webhook repo without checking — a WhatsApp Business app has different review and permission state.
+**Not needed:** registering event parameters (Meta accepts arbitrary ones), pre-declaring the custom event name, domain verification.
+
+**AEM correction:** Aggregated Event Measurement is an iOS/ATT mechanism. Android app events are **not** subject to the 8-event limit. The dataset's event-priority ranking still matters for the **website** pixel (iPhone web visitors) but is not a prerequisite for this work.
+
+**Sequencing gotcha:** a custom event is only selectable as a campaign optimisation goal **after Meta has received at least one**. Ship → fire a real `Activated` → confirm in Events Manager → *then* create the campaign.
+
+⚠️ Do not reuse the Meta app behind `WHATSAPP_ACCESS_TOKEN` / `META_APP_SECRET` in the webhook repo without checking — a WhatsApp Business app has different review and permission state.
 
 ---
 
@@ -75,164 +96,214 @@ Blocks everything.
 
 `pnpm add react-native-fbsdk-next`. Autolinking handles registration.
 
-⚠️ **Check `peerDependencies` against RN 0.79.5 with `newArchEnabled=false` before merging.** If the current major requires the new architecture, pin the last major supporting the old bridge.
+⚠️ Check `peerDependencies` against RN 0.79.5 with `newArchEnabled=false` before merging. Pin the last old-bridge major if needed. Do **not** run `pod install`; leave a Podfile comment that fbsdk is intentionally unconfigured on iOS.
 
-Do **not** run `pod install` — iOS is out of scope. Leave a Podfile comment saying fbsdk is intentionally unconfigured on iOS.
+| File | Change |
+|---|---|
+| `res/values/strings.xml` | `facebook_app_id`, `facebook_client_token` (public values shipped in the APK — safe to commit, same as the existing `GOOGLE_WEB_CLIENT_ID`) |
+| `AndroidManifest.xml` | `com.facebook.sdk.ApplicationId`, `ClientToken`, `AutoInitEnabled=true`, `AutoLogAppEventsEnabled=true`, `AdvertiserIDCollectionEnabled=true`; plus `com.google.android.gms.permission.AD_ID` |
+| `MainApplication.kt` | one line after `SoLoader.init(...)`: `AppEventsLogger.activateApp(this)` |
+| `proguard-rules.pro` | **critical** — see below |
 
-**`res/values/strings.xml`** — `facebook_app_id`, `facebook_client_token`. Both are public values shipped in the APK; safe to commit, same as the existing `GOOGLE_WEB_CLIENT_ID` handling.
+`AutoLogAppEventsEnabled=true` produces the automatic **install** and **activate** events — the entire top of the funnel. Never disable.
 
-**`AndroidManifest.xml`**
-- `<uses-permission android:name="com.google.android.gms.permission.AD_ID" />`
-- Inside `<application>`: `com.facebook.sdk.ApplicationId`, `ClientToken`, `AutoInitEnabled=true`, `AutoLogAppEventsEnabled=true`, `AdvertiserIDCollectionEnabled=true`
-
-`AutoLogAppEventsEnabled=true` is what produces the automatic **install** and **activate** events — the entire top of the funnel. Never disable.
-
-**`MainApplication.kt`** — one line in `onCreate()` after `SoLoader.init(...)`: `AppEventsLogger.activateApp(this)`. Guarantees activation fires on cold starts where the JS bundle is slow. No `sdkInitialize` needed (AutoInit handles it).
-
-**`proguard-rules.pro` — CRITICAL**
+**ProGuard — the highest-risk item in this plan:**
 ```
 -keep class com.facebook.** { *; }
 -keepclassmembers class com.facebook.** { *; }
 -dontwarn com.facebook.**
 ```
-Release builds run R8. Without these, **the SDK is stripped in release only** — debug works, production silently sends nothing. The existing `-keep class com.facebook.react.**` rule covers React Native, **not** the Facebook SDK.
+`enableProguardInReleaseBuilds = true`, so without these the SDK is stripped **in release only** — debug works, production silently sends nothing. The existing `-keep class com.facebook.react.**` rule covers React Native, not the Facebook SDK. Different packages, same prefix.
 
-**Play Console** — the `AD_ID` permission requires updating the Data safety declaration (Advertising ID → collected, for Advertising/Marketing + Analytics) and the Advertising ID declaration in App Content. **A release with `AD_ID` and a stale Data safety form is rejected.** Same submission.
+**Play Console:** the `AD_ID` permission requires updating the Data safety declaration (Advertising ID → collected, Advertising/Marketing + Analytics) and the Advertising ID declaration in App Content, **in the same submission**, or the release is rejected.
 
 ---
 
 ## Step 3 — RN app: event layer
 
-New `src/analytics/meta.ts`, sibling of the existing `posthog.ts`. Tests in `src/analytics/__test__/meta.test.ts`. Shape mirrors `src/features/study/analytics.ts` — typed closed set of names plus thin named functions, not a generic wrapper class.
+New `src/analytics/meta.ts`, sibling of `src/analytics/posthog.ts`. Tests in `src/analytics/__test__/meta.test.ts`. Shape mirrors `src/features/study/analytics.ts` — a typed closed set of names plus thin named functions, not a generic wrapper.
 
-Contract: `isEnabled()` hard-gates on `Platform.OS === 'android'`; `getCohort()`; `trackMeta()`; `trackMetaPurchase()`; `setMetaUser()` / `clearMetaUser()`. Every call try/caught and short-circuited on iOS, so nothing can crash there.
+All calls hard-gated on `Platform.OS === 'android'` and individually try/caught, so iOS is a silent no-op.
 
-### CompleteRegistration — first-class
+### Identity
 
-The optimisation event. **Must fire exactly once per genuinely new user, never on login.**
+On login/registration: `setUserID(userId)` **and** `setUserData({ email, phone })` — the SDK hashes locally. Use the **same normalisation as the server**: `91` prefix on bare 10-digit numbers, skip masked Apple addresses.
 
-Two call sites, both already gated on an authoritative new-user signal:
+This matters because `Activated` and `CompleteRegistration` are **client-only** — no server twin for registration, and for activation the client copy is the one carrying device identity. If GAID is zeroed (ads personalisation off) they would be orphaned, and orphaned conversions do not train the algorithm. Client-side hashed PII gives them a second matching path.
+
+Call `clearUserData()` + `setUserID(null)` in `signOut` beside `posthog.capture('user_logout')`, so a shared device doesn't attribute the next signup to the previous person.
+
+### `Activated` — the primary event
+
+Server owns the gate; the client fires the SDK event when told to (Step 4b).
+
+```
+event_name:       'Activated'        (custom app event)
+event_id:         'activated_<userId>'
+content_category: <cohort, supplied by the server>
+```
+
+`event_id` is deterministic and once-per-user, so a retry or duplicated response can never double-count.
+
+### `CompleteRegistration`
+
+Two call sites, both already gated on an authoritative new-user signal — piggyback on the existing PostHog gate so the two systems can never disagree about who is new:
 
 | Site | Add after the existing `posthog.capture('user_registered', …)` |
 |---|---|
-| `authSlice.ts:30` (email signup, inside `if (response.success)`) | `setMetaUser(...)` + `trackMeta('CompleteRegistration', { registration_method: 'email', … })` |
-| `useAuth.ts:91` (`trackOAuthAuthenticated`, inside `if (isNewUser)`) | same, with `registration_method: authMethod` |
+| `src/features/auth/store/authSlice.ts:30` (email) | `trackMeta('CompleteRegistration', { registration_method: 'email' })` |
+| `src/features/auth/hooks/useAuth.ts:91` (OAuth, inside `if (isNewUser)`) | same, with `registration_method: authMethod` |
 
-Piggy-backing on the existing PostHog gate means the two systems can never disagree about who is new — the most likely source of a broken funnel.
+Fallback optimisation goal only — not the primary.
 
-**Cohort caveat:** `examTagIds` is populated by `StepExam` *after* signup, and OAuth users skip Preferences entirely. So `getCohort()` returns `'untagged'` for most registrations. Fix: fire `CompleteRegistration` as specified with whatever is known, and *additionally* fire `CompleteTutorial` with the real cohort when the exam step completes (in `useOnboardingSelections` where `setExamTagIds` is dispatched — not in `StepExam.tsx`, keep components render-only). Cohort-split registration reporting keys off `CompleteTutorial`; `CompleteRegistration` stays the clean high-volume optimisation event.
+### `Purchase` — reporting only
 
-Rejected alternative: delaying `CompleteRegistration` until after exam selection — it would drop the event entirely for OAuth users and anyone who taps Skip, exactly the volume the campaign needs.
+Call site `iapService.ts:284`, **Android branch only** (leave the iOS branch at `:238` untouched).
 
-Add `clearMetaUser()` in `signOut` beside `posthog.capture('user_logout')`, so a shared device doesn't attribute the next signup to the previous person's hashed PII.
+At `:284` there is no price in scope. Add a module-level `pendingPurchasePrices` Map mirroring the existing `pendingPurchaseCourseIds` Map (same pattern, same lifecycle), populate it in `requestProductPurchase` where the store price is already known, read it at `:284`. `value = priceAmountMicros / 1_000_000`, currency from the store. If absent (pending purchase recovered by `checkPendingPurchases:327` after a restart), re-call `getProductDetails`; if that fails too, **skip the event and warn** — a wrong value is worse than a missing one.
 
-### Purchase
+`event_id: purchase.transactionId` — the dedupe key shared with the server.
 
-Call site `iapService.ts:284`, **Android branch only**. Leave the iOS branch at `:238` untouched.
+### Deleted from the earlier design
 
-**The value problem.** At `:284` only `productId`, `courseIdNumber`, `transactionId` are in scope — no price. Fix: add a module-level `pendingPurchasePrices` Map mirroring the existing `pendingPurchaseCourseIds` Map (same pattern, same lifecycle, no new abstraction), populate it in `requestProductPurchase` where the store price is already known, read it at `:284`. `value = micros / 1_000_000`, currency from the store.
-
-Fallback if absent (pending purchase recovered by `checkPendingPurchases:327` after a restart): re-call `getProductDetails`. If that also fails, **skip the event and warn** — a Purchase with a wrong value is worse than a missing one.
-
-Payload carries `event_id: purchase.transactionId` (the dedupe key), `content_ids`, `content_category`, `order_id`, `num_items`.
-
-Optionally also fire `InitiateCheckout` at `:847` beside `purchase_initiated` — cheap, gives the funnel a mid-point while Purchase volume is low.
-
-### Test setup
-
-Mock `react-native-fbsdk-next` in `jest.setup.js` beside the existing `posthog-react-native` mock. Tests: cohort mapping for `[2]` / `[7]` / `[]` / `[2,7]`; iOS no-op asserts zero SDK calls; `amount <= 0` and `NaN` skip; SDK throw does not propagate; `CompleteRegistration` fires once on register and not on failure; `clearMetaUser` on logout; Android purchase uses the **store** price not the course price. Run `npx jest src/analytics src/features/iap`.
+The client no longer computes cohort. A hardcoded `UPSC_COURSE_IDS` map was going to drift from the DB; the server now resolves cohort and sends it down in the sync response. That map and its drift caveat are gone.
 
 ---
 
-## Step 4 — Backend: Conversions API
+## Step 4 — Backend
+
+### 4a. Migration — one column
+
+```sql
+ALTER TABLE users ADD COLUMN meta_activated_at DATETIME NULL;
+```
+
+**Append it; do not position it.** On MySQL 8 an `ADD COLUMN … NULL` at the end of the table is an INSTANT operation — no rebuild, no lock. Contrast `database/migrations/addAlternateEmailVerified.js`, which uses `MODIFY … AFTER` for column grouping and whose own header warns that is a full table rebuild.
+
+New script `database/migrations/addMetaActivatedAt.js`, same idempotent shape minus the repositioning: check `INFORMATION_SCHEMA.COLUMNS`, `ADD` if absent, release in `finally`, `pool.end()`.
+
+### 4b. Activation detection — the sync path
+
+`controllers/sqlite.controller.js` → `syncPush` (`:11`, `user_id = req.user.id`). Card progress is written as `INSERT INTO attribute` at `:146`; the transaction commits at `:395`; the response is `{ success, timestamp }` at `:401`; the connection releases at `:413`.
+
+**Why not an AsyncStorage flag on the device:** it resets on reinstall, and reinstalls are common in an install-ad funnel. That would inflate the primary optimisation event — the one number you least want inflated.
+
+**Why not "fire when count == 10":** WatermelonDB sync writes in **batches**, so a user's count jumps 0 → 25 in one sync and never equals 10. The event would silently never fire.
+
+The mechanism:
+
+1. **Before the commit at `:395`**, on the same connection: if `meta_activated_at IS NULL`, count the user's cards (`SELECT COUNT(*) FROM attribute WHERE user_id = ?` — covered by `idx_user_id`). If `>= 10`:
+   ```sql
+   UPDATE users SET meta_activated_at = NOW()
+   WHERE id = ? AND meta_activated_at IS NULL
+   ```
+   `affectedRows` tells you whether this sync was the one that crossed. The `AND meta_activated_at IS NULL` clause is what carries the correctness — it makes the write idempotent under concurrent syncs and removes any dependence on hitting exactly 10.
+2. **After the commit**, extend the `:401` response with `meta_activated: true` and the resolved cohort — only on the transition, never afterwards.
+3. **After the commit**, also fire CAPI with the same `event_id: 'activated_<userId>'`, fire-and-forget.
+
+### 4c. Cohort resolver
+
+New `services/metaCohort.js`, two exports:
+
+- `resolveCohortForCourse(connection, courseId)` — `course_tag_selection` → `course_tag` where tag = `'UPSC'` → `'upsc'`, else `'untagged'`
+- `resolveCohortForUser(connection, userId)` — primary: `attribute` → `cards.course_id` → `course_tag_selection` → `course_tag`. Fallback: `user_tag_preferences` tag_id 2. Else `'untagged'`.
+
+Deriving from the course actually studied is behavioural rather than self-reported, and it is the only version that can tell you your UPSC ads are misfiring. The onboarding fallback exists because OAuth users skip the Preferences flow entirely.
+
+**Caveat:** cloned courses share cards via `card_mappings`, so a card can belong to a master course while the user studies a clone. If the tag sits on the clone, the join misses — it degrades to `untagged`, never to a wrong answer. That is why the onboarding fallback stays.
+
+**Both resolvers must never throw into their callers.** `resolveCohortForUser` runs inside the activation transaction; an unhandled throw would roll back a user's study sync. Try/catch internally, return `'untagged'`, log a warning. **Losing a reporting label is fine; losing study progress is not.**
+
+Untagged emits `console.warn('[meta-capi] course %s has no UPSC tag', courseId)`. That warning is the worklist — grep Loki weekly.
+
+### 4d. CAPI module
 
 New `services/metaCapi.js` (correctly-spelled `services/`, matching `services/accrualPolicy.js`). CommonJS.
 
-The masked-Apple-email check inlines the two domain constants with a comment pointing at `utils/appleAuthHelpers.js` as canonical.
+Exports: `normalizeEmail` (lowercase/trim; null for `@privaterelay.appleid.com` and `@sprv.com` — inline the constants with a comment pointing at `utils/appleAuthHelpers.js` as canonical), `normalizePhone` (digits only; 10 digits → `91` + digits, covering 98.9% of rows; 12 starting `91` as-is; else null), `normalizeName` (first token → `fn` only; `users.name` is a single column and a wrong `ln` lowers match quality), `sha256`, `buildUserData`, `sendEvent`, `sendActivated`, `sendPurchase`.
 
-**Exports:** `normalizeEmail` (lowercase/trim; null for `@privaterelay.appleid.com` and `@sprv.com`), `normalizePhone` (digits only; 10 digits → `91` + digits, covering 98.9% of rows; 12 starting `91` as-is; otherwise null), `normalizeName` (first token → `fn` only — `users.name` is a single column, and a wrong `ln` lowers match quality), `sha256`, `buildUserData`, `sendEvent`, `sendPurchase`.
+`buildUserData` returns `{ em, ph, fn, external_id }`, omitting null inputs. **If it ends up empty, do not send** — Meta rejects it and the rejection is silent in aggregate reporting.
 
-**Guard:** if `user_data` ends up with no keys at all, do not send — Meta rejects it and the rejection is silent in aggregate reporting. `external_id` is always present (userId always known), which is why the 217 masked-email users still match on `external_id` + `fn`.
+Send `external_id: sha256(String(userId))` on every event, matching the client's `setUserID`. **Correction worth recording:** `external_id` is not a bootstrap identifier — Meta cannot resolve it alone. It becomes a join key only once co-observed with a GAID or real email. It does **not** rescue the 217 masked-email users on its own.
 
-**Payload:** `POST /{META_GRAPH_VERSION}/{META_DATASET_ID}/events` with `event_name: 'Purchase'`, `event_time` from `purchaseTimeMillis / 1000`, `event_id` = Google order id, `action_source: 'app'`, `user_data`, `custom_data`, `app_data`.
+Payload: `POST /{META_GRAPH_VERSION}/{META_DATASET_ID}/events`, `action_source: 'app'`, plus `app_data`.
 
-⚠️ **`action_source: 'app'` requires `app_data.extinfo`.** Without a usable array Meta may accept the event but exclude it from app-campaign attribution — a silent failure that looks like "events are arriving, why is nothing attributed". `extinfo` is positional; slot 0 (`'a2'` for Android) and slot 1 (package name) must be right. Have the client attach device fields via an optional `app_context` on the verify request (`react-native-device-info` is already a dependency), validated in `validators/iap.validator.js`. Verify in Test Events that the event is classified as **app** before shipping.
+⚠️ **`action_source: 'app'` requires `app_data.extinfo`.** Without a usable array Meta may accept the event but exclude it from app-campaign attribution — reads as "events arriving, attribution zero". `extinfo` is positional; slot 0 (`'a2'`) and slot 1 (package name) must be right. Have the client attach device fields via an optional `app_context` (`react-native-device-info` is already a dependency), validated server-side. **Verify in Test Events that the event is classified as an app event before shipping.**
 
-### Where the send happens
+`sendEvent`: axios `timeout: 3000`, one retry on network error or 5xx, `console.warn('[meta-capi] …')` on final failure, never throws. Early-return unless `META_CAPI_ENABLED === 'true'` — ships dark.
 
-1. **Before** the commit at `:748`, while the connection is checked out, read buyer PII and cohort into locals — avoids a second pool checkout and keeps the release-in-`finally` discipline.
-2. **After** the commit and after Redis invalidation `:753-754`, before the return: `sendPurchase({...}).catch(() => {})` — fire-and-forget, never awaited, never thrown. A Meta outage must never roll back or slow a purchase.
-3. **Do not** hook the duplicate-purchase branch at `:583-616` — it commits and returns `{ duplicate: true }`, and firing there double-counts on every Google retry.
-4. **Do not** hook `processApplePurchase:1023` or `/iap/verify-purchase/apple`. Unreachable from the app today; hooking them creates a second Purchase source if iOS is ever wired up. Leave a comment at `iap.controller.js:92` saying so.
+### 4e. Purchase CAPI hook
 
-`sendEvent`: axios `timeout: 3000`, one retry on network error or 5xx, `console.warn('[meta-capi] …')` on final failure, never throws. Feature flag `META_CAPI_ENABLED !== 'true'` returns early — ships dark, enabled by env change with no redeploy.
+`sevices/iap.service.js` → `processAndroidPurchase`. Read PII + cohort before the commit at `:748`; fire `sendPurchase(...).catch(() => {})` after the commit and after the Redis invalidation at `:753-754`. Never awaited, never thrown.
 
-### Cohort resolution (authoritative)
+**Do not** hook the duplicate-purchase branch at `:583-616` — it commits and returns `{ duplicate: true }`, and firing there double-counts on every Google retry. **Do not** hook `processApplePurchase:1023`; leave a comment at `iap.controller.js:92` saying why.
 
-Purchase-time cohort comes from the **course**, not the buyer's declared interest:
+**Value:** never derive from `iap_purchases.amount` or `courses.price`. `:383` hardcodes `"INR"` and the price is the catalogue price, not what Google charged; `:890-891` applies a minor-unit heuristic. Use the client-supplied `priceAmountMicros` / `priceCurrencyCode` (new optional validated fields on `/iap/verify-purchase/android`), fall back to `course.price` + `'INR'` with a warning, and **skip the event if value is null/NaN/≤ 0**.
 
-```sql
-SELECT t.tag FROM course_tag_selection s
-JOIN course_tag t ON t.id = s.tag_id
-WHERE s.course_id = ? AND t.tag IN ('UPSC','SPSC') LIMIT 1
-```
+### 4f. Env vars
 
-`UPSC → upsc`, `SPSC → sikkim_psc`, no row → `untagged`. No course carries both (verified), so `LIMIT 1` is safe.
+`META_CAPI_ENABLED=false`, `META_CAPI_ACCESS_TOKEN`, `META_DATASET_ID=973157488384012`, `META_GRAPH_VERSION=v21.0`, `META_TEST_EVENT_CODE`. Add to `.env.example` and the env matrix in `docs/ARCHITECTURE.md`. Do not reuse the name `META_APP_SECRET` — taken in the webhook repo for WhatsApp.
 
-Untagged: send `'untagged'`, never omit, and `console.warn('[meta-capi] course %s has no UPSC/SPSC tag …', courseId)`. That warning is the worklist — grep Loki weekly. Fires on ~16% of Android purchases today.
+### 4g. Tests + docs (mandatory before close)
 
-### Value and currency
+- `Test/services/metaCapi.test.js` — table-driven email/phone/name normalisation; empty `user_data` → no HTTP call; bad value → no call; flag off → no call; axios rejection resolves without throwing; payload shape (`action_source === 'app'`, `extinfo[0] === 'a2'`).
+- `Test/services/metaCohort.test.js` — UPSC-tagged course → `'upsc'`; untagged → `'untagged'`; studied-course path wins over onboarding; onboarding fallback when no study match; DB error → `'untagged'` + warn, no throw.
+- `Test/controllers/sqliteActivation.test.js` — crossing 10 sets the column and returns the flag once; a second sync returns no flag; a batch jumping 0 → 25 fires exactly once; an already-activated user is untouched; **a resolver throw does not roll back the sync transaction**.
+- `Test/services/iapMetaHook.test.js` — `sendPurchase` called once after commit, **not** on the duplicate branch, rejection doesn't reject `processAndroidPurchase`.
 
-`insertIAPPurchase` writes `amount = courses.price` and hardcodes `currency = "INR"` at `:383` — the *catalogue* price, not what Google charged.
-
-1. **Never** derive Meta `value` from `iap_purchases.amount` or `courses.price` when a better source exists.
-2. Use the client-supplied store price: `priceAmountMicros / 1_000_000` + `priceCurrencyCode`, added as optional validated fields on the verify request.
-3. Fall back to `course.price` + `'INR'` only when absent — and warn, so you can see how often the good path misses.
-4. **Skip the event if `value` is null, NaN, or `<= 0`.** A zero-value Purchase poisons value optimisation; a missing one merely under-reports.
-5. Do **not** fix the DB `amount`/`currency` columns here — real bug, needs a backfill decision, would make the PR unreviewable. File separately.
-
-### Env vars
-
-`META_CAPI_ENABLED=false` (ship dark), `META_CAPI_ACCESS_TOKEN`, `META_DATASET_ID=973157488384012`, `META_GRAPH_VERSION=v21.0`, `META_TEST_EVENT_CODE` (empty in prod). Add to `.env.example` and the env matrix in `docs/ARCHITECTURE.md`. Do not reuse the name `META_APP_SECRET` — taken in the webhook repo for WhatsApp, means something else.
-
-### Tests + docs (mandatory before close)
-
-`Test/services/metaCapi.test.js` — table-driven over email/phone/name normalisation, empty `user_data` → no HTTP call, bad value → no call, flag off → no call, axios rejection resolves without throwing, payload shape (`action_source === 'app'`, `extinfo[0] === 'a2'`).
-`Test/services/iapMetaHook.test.js` — called once after commit, **not** on the duplicate branch, rejection doesn't reject `processAndroidPurchase`.
-
-Docs: `docs/ARCHITECTURE.md` (new service + env vars + fire-and-forget contract), `docs/API_INVENTORY.md` + `routes/docs/iap.openapi.js` (new optional request fields), `docs/DOMAIN_GLOSSARY.md` (cohort), CLAUDE.md Domain gotcha (*Meta CAPI value must never be read from `iap_purchases.amount`*).
+Docs: `docs/DATABASE_SCHEMA.md` (new column), `docs/ARCHITECTURE.md` (new services, env vars, fire-and-forget contract), `docs/API_INVENTORY.md` + `routes/docs/iap.openapi.js` (new optional request fields, new sync response fields), `docs/DOMAIN_GLOSSARY.md` (cohort, activation), CLAUDE.md Domain gotcha (*Meta CAPI value must never come from `iap_purchases.amount`*).
 
 ---
 
-## Step 5 — Web pixel cohort tagging
+## Step 5 — Website: cohort label
 
-`spaced-revision-sern-frontend/src/utils/metaPixel.js` — add `content_category` (cohort) to `trackAppDownload` and `trackSignup`, keeping `'app_download'` on `content_name`. Because the dataset is shared, **every web event must keep `action_source: 'website'`** and every app event `'app'` — otherwise web signups get counted in app-campaign reporting.
+UPSC ad destination URLs carry `?cohort=upsc`.
 
-Open item: the web cohort source (course page tag, or web onboarding pick) hasn't been traced yet.
+| File | Change |
+|---|---|
+| `src/utils/marketingAttribution.js` | add `'cohort'` to `MARKETING_KEYS` — one line |
+| `src/utils/metaPixel.js` | read stored attribution; attach `content_category` to `trackAppDownload` + `trackSignup` when cohort is `upsc` |
+| `Test/utils/metaPixel.test.js`, `Test/utils/marketingAttribution.test.js` | Vitest, per the frontend CLAUDE.md |
+
+The plumbing already exists: `RouteTracker.jsx:19` calls `captureMarketingAttribution(location.search)` on every route change, persisting first-touch params (already including `fbclid` and UTMs) to sessionStorage. So the value survives the visitor browsing around before pressing the badge.
+
+No new component, no route change, no landing page work. Not `trackLogin` — nothing to learn there.
+
+**Whitelist the value — accept only `'upsc'`.** Otherwise `?cohort=<anything>` is persisted and shipped to Meta, letting a crafted URL inject junk categories into your reporting.
+
+**Validate at read time in `metaPixel.js`, not at capture time.** `marketingAttribution.js` also feeds `record_activity`, where raw values are legitimately useful for analytics. Filter only where the value crosses into Meta.
+
+**When the param is absent, omit `content_category` entirely** rather than sending `'untagged'`. Most web traffic is organic, so labelling all of it would be noise. (The app does the opposite — there `untagged` is meaningful and drives the tagging worklist.)
+
+Because the dataset is shared, web events must keep `action_source: 'website'` and app events `'app'`, or web signups get counted in app-campaign reporting.
 
 ---
 
 ## Deduplication
 
-**Key = the Google Play order ID.** Client sends `purchase.transactionId` at `:284`; server sends `data.transactionId` from the same field. Live shape: `GPA.3301-6302-2094-33260`. Identical raw string both sides, no prefix, no transformation.
+The client and server both send `Activated` and `Purchase`. Meta collapses them when **`event_name` and `event_id` both match within 48 hours**.
 
-Meta dedupes when `event_name` **and** `event_id` match within 48h; the server fires seconds after the client, comfortably inside.
+- `Activated` → `activated_<userId>`
+- `Purchase` → the Google Play `transactionId`, live shape `GPA.3301-6302-2094-33260`, byte-identical on both sides with no prefix or transformation
+
+Get this wrong and every conversion counts twice: reported ROAS doubles, bidding optimises against fiction, and you find out weeks later when Ads Manager and MySQL disagree by exactly 2×.
 
 Document the contract in exactly two places so it cannot drift: a comment at `iapService.ts:284` and one on `sendPurchase`, each naming the other.
 
-**Client/server cohort disagreement:** both events share an `event_id`, Meta keeps one, so which `content_category` survives is non-deterministic — which quietly breaks the Custom Conversions. Fix: have the client send the **course-derived** value too, via a small static map in `meta.ts` seeded from the verified IDs above. That list will drift from the DB; acceptable only because the server is authoritative and its warning log is the drift detector. Document the asymmetry in a comment. If you skip the client-side map, do not create cohort Custom Conversions on `Purchase` at all.
+**Why both sides at all:** the client carries the GAID, which is the only thing that links the event to the ad click — the server has no access to it. The server carries verified truth from the database plus hashed PII, surviving app kills and network failures. Neither alone is sufficient.
 
 ---
 
 ## Verification
 
-1. **Test Events, app** — install a debug build, confirm `CompleteRegistration` fires once on fresh signup and **not** on a subsequent login.
-2. **Test Events, server** — set `META_TEST_EVENT_CODE`, run a sandbox purchase, confirm the event appears labelled **Server** and is classified as an **app** event. If it shows as web, `extinfo` is wrong.
-3. **Release-build check** — build a release APK and confirm events arrive **from the release build**, not just debug. This is the ProGuard trap.
-4. **Dedupe** — one sandbox purchase with the test code shows both App and Server events (Test Events deliberately doesn't dedupe); confirm the two `event_id` values are byte-identical. Then without the test code, wait 30–60 min and confirm the live dataset shows **one** Purchase, not two. N purchases must produce N, not 2N.
-5. **Event Match Quality** — target > 6.0. Expected: `em` ~98.5%, `ph` ~56%, `fn` ~99.7%, `external_id` 100%. Verify a masked-email user produces an event with `em` absent but `external_id` + `fn` present, and that it is **accepted**. If EMQ sits below 5, phone coverage is the highest-leverage fix.
-6. `npx jest` in both repos.
-7. **First 7 days:** daily compare Meta `CompleteRegistration` vs PostHog `user_registered` (Android) — a large gap means ProGuard stripping or a misplaced event. Daily compare Meta `Purchase` vs `SELECT COUNT(*) FROM iap_purchases WHERE platform='android'`. Weekly grep Loki for `[meta-capi]`.
+1. **Release-build check first** — build a release APK and confirm events arrive **from the release build**, not just debug. This is the ProGuard trap.
+2. **Test Events, app** — confirm `Activated` fires when a user crosses 10 cards and **does not** fire on subsequent syncs. Confirm `CompleteRegistration` fires once on fresh signup and not on later logins.
+3. **Test Events, server** — with `META_TEST_EVENT_CODE` set, confirm the CAPI event appears labelled **Server** and is classified as an **app** event. If it shows as web, `extinfo` is wrong.
+4. **Dedupe** — with the test code set, both App and Server copies appear (Test Events deliberately doesn't dedupe); confirm the `event_id`s are byte-identical. Then without it, confirm the live dataset shows **one** conversion, not two.
+5. **Event Match Quality** — target > 6.0. Expected: `em` ~98.5%, `ph` ~56%, `fn` ~99.7%, `external_id` 100%.
+6. **Web** — load with `?cohort=upsc`, press a badge, confirm `Lead` carries `content_category: upsc`. Load without it, confirm the field is absent.
+7. `npx jest` (backend, RN) and `npm test` (web).
+8. **First 7 days** — daily compare Meta `Activated` against a PostHog first-time-`flashcard_answered` count; a large gap means ProGuard stripping or a broken gate. Weekly grep Loki for `[meta-capi]`.
 
 ---
 
@@ -240,46 +311,47 @@ Document the contract in exactly two places so it cannot drift: a comment at `ia
 
 | Ship | Contents | Store release? |
 |---|---|---|
-| **0** | All Meta Business setup | no — blocks 1 and 3 |
-| **1** | Backend CAPI + validator + OpenAPI + docs + tests, `META_CAPI_ENABLED=false` | **no** — deployable alone |
-| **2** | Web pixel cohort params | no |
-| **3** | RN app: SDK, native config, ProGuard, `meta.ts`, call sites, store-price + `app_context` fields, tests. **Play Data safety update in the same submission.** | **yes — Play review** |
-| **4** | Flip `META_CAPI_ENABLED=true`; launch campaigns optimising for `CompleteRegistration` | no |
-| **5** | After ~50 Purchases/wk per ad set, switch optimisation to `Purchase` | no — gated on measured volume, not a date |
+| **0** | Meta Business setup | no — blocks 1 and 3 |
+| **1** | Migration + activation detection + cohort resolver + CAPI module + Purchase hook + tests + docs, `META_CAPI_ENABLED=false` | **no** — deployable alone |
+| **2** | Web cohort param | no |
+| **3** | RN app: SDK, native config, ProGuard, `meta.ts`, identity, event call sites, store-price + `app_context` fields, tests. **Play Data safety update in the same submission.** | **yes — Play review** |
+| **4** | Flip `META_CAPI_ENABLED=true`, fire one real `Activated`, confirm in Events Manager, **then** create the campaign optimising on unfiltered `Activated` | no |
 
-Ship 1 alone is useful and zero store risk: server-side Purchase attribution for the existing installed base immediately, and it validates the payload and dedupe key before the app release is locked. Ship 3 is the long pole (Play review + Data safety). Start it as soon as Ship 0 yields the App ID and Client Token.
+Run the migration before Ship 1 code reaches traffic. Ship 3 is the long pole — start it as soon as Ship 0 yields the App ID and Client Token.
 
 ---
 
 ## Risks — ordered by how quietly they fail
 
-1. **ProGuard strips the SDK in release only.** Debug works, production sends nothing, discovered weeks later. The existing `-keep class com.facebook.react.**` does not cover it.
-2. **Malformed `app_data.extinfo` with `action_source: 'app'`.** Events accepted, never attributed. Looks like "events arriving but attribution zero".
-3. **Untagged courses** — 16% of Android purchases, dominated by the top-selling course 225. If nobody reads the warnings, cohort reporting silently covers only 84% of revenue.
-4. **Client/server cohort disagreement** on `Purchase` — non-deterministic survivor breaks Custom Conversions.
-5. **Wrong `value`** from `courses.price` + hardcoded INR — plausible-looking but wrong ROAS silently misdirects budget.
-6. **`CompleteRegistration` firing on login** if it's ever moved off the `isNewUser` / `register.fulfilled` gates onto a screen mount or auth-state effect. Worst possible failure given campaigns optimise on it. Locked by test.
-7. **Shared dataset cross-contamination** — only `action_source` separates web and app registrations.
-8. **pnpm + patch-package + autolinking** — native deps under pnpm's symlinked `node_modules` occasionally fail Gradle resolution. Budget time for a clean `pnpm install` + `./gradlew clean assembleRelease`.
-9. **Someone wires iOS later** and creates a second Purchase source. Leave the explicit comment.
+1. **ProGuard strips the SDK in release only.** Debug works, production sends nothing.
+2. **Malformed `app_data.extinfo`** with `action_source: 'app'` — events accepted, never attributed.
+3. **Activation gate fires more than once, or never.** Batch syncs are why the count can't be compared to exactly 10, and why the `AND meta_activated_at IS NULL` guard carries the correctness.
+4. **Untagged courses** — ~16–20% of purchases; the label silently covers only part of the funnel if nobody reads the warnings.
+5. **Wrong purchase `value`** from the catalogue price + hardcoded INR.
+6. **`CompleteRegistration` firing on login** if ever moved off the `isNewUser` / `register.fulfilled` gates.
+7. **Volume per ad set** — ~30–46 activations/week organically is still under Meta's ~50/wk threshold. Use **few ad sets** so conversions concentrate; `CompleteRegistration` is the fallback goal.
+8. **Shared dataset cross-contamination** — only `action_source` separates web from app.
+9. **pnpm + patch-package + autolinking** — budget time for a clean `pnpm install` + `./gradlew clean assembleRelease`.
 
 ## Separate bug found while planning (not in scope)
 
-`razorpay-webhook-server/src/services/apple.subscription.service.js` divides Apple's `price` by 100, but Apple reports **milliunits** — the divisor should be 1000. Result: iOS `iap_purchases.amount` is **10× inflated** (course 2190 at ₹399 stored as `5990.00`; course 2204 at ₹999 stored as `12990.00`). Needs its own ticket and a backfill decision. Do not let anyone wire that column into Meta later.
+`razorpay-webhook-server/src/services/apple.subscription.service.js` divides Apple's `price` by 100, but Apple reports **milliunits** — the divisor should be 1000. iOS `iap_purchases.amount` is **10× inflated** (course 2190 at ₹399 stored as `5990.00`; course 2204 at ₹999 as `12990.00`). Own ticket, needs a backfill decision. Do not wire that column into Meta later.
 
-## Open items / unverified
+## Open items
 
-- Meta App ID, Client Token, Business Manager ownership of dataset `973157488384012` — placeholders throughout.
+- Meta App ID / Client Token / Business Manager ownership of dataset `973157488384012` — placeholders.
 - Whether the existing WhatsApp Meta app can host the Android platform.
 - `react-native-fbsdk-next` compatibility with RN 0.79.5 on the old architecture.
-- Whether Meta tolerates a partially-empty `extinfo` array (positional and documented, but untested).
-- The web frontend's cohort source for `metaPixel.js`.
+- Whether Meta tolerates a partially-empty `extinfo` array.
+- **Does the app have `phone_number` in memory** when identity is set? 55% of users have one, but the auth response may not carry it.
 
 ## Production checklist
 
 - [ ] Meta Business Manager setup (Step 1) — blocks everything
+- [ ] Run `node database/migrations/addMetaActivatedAt.js` on prod before Ship 1 serves traffic
 - [ ] Env vars on prod: `META_CAPI_ENABLED`, `META_CAPI_ACCESS_TOKEN`, `META_DATASET_ID`, `META_GRAPH_VERSION`, `META_TEST_EVENT_CODE`
 - [ ] ProGuard keep rules verified against a **release** build
 - [ ] Play Data safety + Advertising ID declaration updated in the same submission as `AD_ID`
-- [ ] Tag the ~16% of purchased courses missing a UPSC/SPSC tag
-- [ ] Verify dedupe produces one conversion per purchase, not two
+- [ ] Add `?cohort=upsc` to every UPSC ad destination URL
+- [ ] Tag the ~16–20% of purchased courses missing a UPSC tag
+- [ ] Verify dedupe produces one conversion per event, not two
