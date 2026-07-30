@@ -33,19 +33,19 @@ Goal: make Android installs, registrations and purchases visible to Meta, attrib
 
 ## Verified ground truth
 
-| Fact | Evidence |
-|---|---|
-| Android is the only client→server purchase path | `iapService.ts:184` posts to `/iap/verify-purchase/android`; iOS branch at `:224` returns before any network call |
-| Android products are consumables, not subscriptions | `type: 'in-app'`, `finishTransaction({ isConsumable: true })` — every Purchase is an initial purchase |
-| Purchase hook point | `iapService.ts:284` — beside `posthog.capture('purchase_completed', { platform: 'android' })` |
-| Server commit point | `sevices/iap.service.js:748`, Redis invalidation `:753-754` |
-| Duplicate-purchase branch commits and returns early | same file `:583-616` — **must not** fire CAPI |
-| Registration emitters (only two) | `authSlice.ts:30` (email), `useAuth.ts:91` (OAuth, gated on backend `isNewUser`) |
-| Package name | `com.spacedrevision`, activity `com.spacedrevision.MainActivity` |
-| Cohort course IDs (live) | UPSC = 2190, 2201, 2257, 100044 · SPSC = 370, 2160, 2166, 2185, 2204, 100035, 100036, 100037 |
-| Untagged purchase share | 7 of 44 Android rows (16%), dominated by course 225 "B.Ed. Entrance Exam" |
-| Match-quality inputs | email 100%, name 99.7% (single column), phone 55.7%, no dob/gender. 217 unmatchable emails (166 Apple relay + 51 `@sprv.com`) |
-| Build constraints | `enableProguardInReleaseBuilds = true`, `newArchEnabled = false`, hermes on, pnpm + patch-package, autolinking on |
+| Fact                                                | Evidence                                                                                                                      |
+| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Android is the only client→server purchase path     | `iapService.ts:184` posts to `/iap/verify-purchase/android`; iOS branch at `:224` returns before any network call             |
+| Android products are consumables, not subscriptions | `type: 'in-app'`, `finishTransaction({ isConsumable: true })` — every Purchase is an initial purchase                         |
+| Purchase hook point                                 | `iapService.ts:284` — beside `posthog.capture('purchase_completed', { platform: 'android' })`                                 |
+| Server commit point                                 | `sevices/iap.service.js:748`, Redis invalidation `:753-754`                                                                   |
+| Duplicate-purchase branch commits and returns early | same file `:583-616` — **must not** fire CAPI                                                                                 |
+| Registration emitters (only two)                    | `authSlice.ts:30` (email), `useAuth.ts:91` (OAuth, gated on backend `isNewUser`)                                              |
+| Package name                                        | `com.spacedrevision`, activity `com.spacedrevision.MainActivity`                                                              |
+| Cohort course IDs (live)                            | UPSC = 2190, 2201, 2257, 100044 · SPSC = 370, 2160, 2166, 2185, 2204, 100035, 100036, 100037                                  |
+| Untagged purchase share                             | 7 of 44 Android rows (16%), dominated by course 225 "B.Ed. Entrance Exam"                                                     |
+| Match-quality inputs                                | email 100%, name 99.7% (single column), phone 55.7%, no dob/gender. 217 unmatchable emails (166 Apple relay + 51 `@sprv.com`) |
+| Build constraints                                   | `enableProguardInReleaseBuilds = true`, `newArchEnabled = false`, hermes on, pnpm + patch-package, autolinking on             |
 
 ## Known limitations (accepted)
 
