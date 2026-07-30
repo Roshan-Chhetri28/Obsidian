@@ -71,14 +71,44 @@ Critically: filtering the optimisation event down to the UPSC slice would cut 30
 
 ---
 
+## Confirmed Meta-side values
+
+| Item | Value |
+|---|---|
+| Meta app | **SpacedRevision ads** (clean — not one of the WhatsApp API apps) |
+| **App ID** | `1348293100400435` |
+| Business portfolio | `studytip_sciencehacks` — ID `1901160230286930`, Verified |
+| Ad account | `488510547291559` |
+| Web pixel (separate data source) | `973157488384012` |
+| Package name | `com.spacedrevision` (`android/app/build.gradle:94`) |
+| Main activity | `com.spacedrevision.MainActivity` |
+| Play app id / dev id | app `4975969594176780494`, developer `5081034845630465015` |
+
+**Key hashes** (Meta → app → Android platform):
+
+| Source | Hash |
+|---|---|
+| Debug keystore (`android/app/debug.keystore`, alias `androiddebugkey`) | `TgbDzI280dxqzC7l+1cdLSRfSRw=` |
+| **Play App Signing key** (SHA-1 `C4:E5:…:AC:E2`) — **the production one** | `xOXMRk+mZcGiQ8YT1DXiUd5rrOI=` |
+| Upload key (`spaced_signed_keys.jks`, alias `release`) | *pending* |
+
+Convert a Play Console SHA-1 with:
+```bash
+echo "AB:CD:…" | tr -d ':\n' | xxd -r -p | openssl base64
+```
+
+The upload keystore is not in the repo — it exists only as CI secrets (`ANDROID_KEYSTORE_BASE64` in `.github/workflows/android-release.yml:82`; Jenkins `credentials('android_keystore_file')`). Both fingerprints are readable from Play Console → Protected with Play → App signing (`…/app/<appId>/keymanagement`), so the keystore file is never needed.
+
+---
+
 ## Step 1 — Meta Business setup (human, no code)
 
 Blocks everything.
 
 1. Create/reuse a Meta app, **Android platform only**. Package `com.spacedrevision`, activity `com.spacedrevision.MainActivity`. Add release **and** upload key hashes — the SDK is untrusted without them.
 2. Record **App ID** and **Client Token** (Settings → Advanced).
-3. Events Manager → dataset `973157488384012` → Connect data source → add the app. **Do not create a second pixel.**
-4. Business Settings → assign the ad account to **both** the app and the dataset (Manage), else App Promotion campaigns can't select the app.
+3. **App events live on the App data source, not inside the web pixel.** In Events Manager the app and the pixel `973157488384012` are *siblings* in the Datasets list, not nested. App events key off the **App ID**; web pixel events stay in their own bucket. The two are joined at the ad-account / business level, not in one dataset. (Earlier drafts of this spec had this wrong.)
+4. Business Settings → assign the ad account to **both** the app and the web dataset (Manage), else App Promotion campaigns can't select the app. *Already done — ad account `488510547291559` is attached via the app's "Manage app ads" use case.*
 5. System user `capi-server` → assets: dataset + app (Manage) → non-expiring token with `ads_management` + `business_management`. This is `META_CAPI_ACCESS_TOKEN`.
 6. Custom Conversion `Activated — UPSC` (filter `content_category = upsc`) **for reporting only**. Do not point a campaign at it.
 
@@ -228,7 +258,7 @@ Exports: `normalizeEmail` (lowercase/trim; null for `@privaterelay.appleid.com` 
 
 Send `external_id: sha256(String(userId))` on every event, matching the client's `setUserID`. **Correction worth recording:** `external_id` is not a bootstrap identifier — Meta cannot resolve it alone. It becomes a join key only once co-observed with a GAID or real email. It does **not** rescue the 217 masked-email users on its own.
 
-Payload: `POST /{META_GRAPH_VERSION}/{META_DATASET_ID}/events`, `action_source: 'app'`, plus `app_data`.
+Payload: `POST /{META_GRAPH_VERSION}/{META_APP_ID}/events`, `action_source: 'app'`, plus `app_data`. **App events post against the App ID (`1348293100400435`), not the web pixel id** — confirm the exact path against Meta's Conversions API for App Events docs before implementing, since this is the piece most likely to have shifted.
 
 ⚠️ **`action_source: 'app'` requires `app_data.extinfo`.** Without a usable array Meta may accept the event but exclude it from app-campaign attribution — reads as "events arriving, attribution zero". `extinfo` is positional; slot 0 (`'a2'`) and slot 1 (package name) must be right. Have the client attach device fields via an optional `app_context` (`react-native-device-info` is already a dependency), validated server-side. **Verify in Test Events that the event is classified as an app event before shipping.**
 
@@ -244,7 +274,9 @@ Payload: `POST /{META_GRAPH_VERSION}/{META_DATASET_ID}/events`, `action_source: 
 
 ### 4f. Env vars
 
-`META_CAPI_ENABLED=false`, `META_CAPI_ACCESS_TOKEN`, `META_DATASET_ID=973157488384012`, `META_GRAPH_VERSION=v21.0`, `META_TEST_EVENT_CODE`. Add to `.env.example` and the env matrix in `docs/ARCHITECTURE.md`. Do not reuse the name `META_APP_SECRET` — taken in the webhook repo for WhatsApp.
+`META_CAPI_ENABLED=false`, `META_CAPI_ACCESS_TOKEN`, `META_APP_ID=1348293100400435`, `META_GRAPH_VERSION=v21.0`, `META_TEST_EVENT_CODE`. Add to `.env.example` and the env matrix in `docs/ARCHITECTURE.md`.
+
+**Not** `META_DATASET_ID` / the pixel id — app events key off the App ID (see Step 1.3). And do not reuse the name `META_APP_SECRET`, which is taken in the webhook repo for WhatsApp and means something else.
 
 ### 4g. Tests + docs (mandatory before close)
 
@@ -326,14 +358,16 @@ Run the migration before Ship 1 code reaches traffic. Ship 3 is the long pole �
 ## Risks — ordered by how quietly they fail
 
 1. **ProGuard strips the SDK in release only.** Debug works, production sends nothing.
-2. **Malformed `app_data.extinfo`** with `action_source: 'app'` — events accepted, never attributed.
+2. **Missing the Play App Signing key hash.** Google re-signs your bundle with *its* key before delivery, so the certificate on a real user's device is not your upload key. Register only the upload hash and every Play install is untrusted while your local release build works fine. Covered — `xOXMRk+mZcGiQ8YT1DXiUd5rrOI=` is registered — but re-check if the signing key is ever rotated.
+3. **Malformed `app_data.extinfo`** with `action_source: 'app'` — events accepted, never attributed.
 3. **Activation gate fires more than once, or never.** Batch syncs are why the count can't be compared to exactly 10, and why the `AND meta_activated_at IS NULL` guard carries the correctness.
 4. **Untagged courses** — ~16–20% of purchases; the label silently covers only part of the funnel if nobody reads the warnings.
 5. **Wrong purchase `value`** from the catalogue price + hardcoded INR.
 6. **`CompleteRegistration` firing on login** if ever moved off the `isNewUser` / `register.fulfilled` gates.
 7. **Volume per ad set** — ~30–46 activations/week organically is still under Meta's ~50/wk threshold. Use **few ad sets** so conversions concentrate; `CompleteRegistration` is the fallback goal.
-8. **Shared dataset cross-contamination** — only `action_source` separates web from app.
 9. **pnpm + patch-package + autolinking** — budget time for a clean `pnpm install` + `./gradlew clean assembleRelease`.
+
+*(An earlier draft listed "shared dataset cross-contamination" here — dropped. App and web are separate data sources, so web and app `CompleteRegistration` were never at risk of being conflated.)*
 
 ## Separate bug found while planning (not in scope)
 
