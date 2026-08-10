@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Projects/Spaced Revision/Repo Documentation/Chat Backend.md",
-                "mode": "preview",
+                "file": "00-Inbox/Things that needs to merged.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chat Backend"
+              "title": "Things that needs to merged"
             }
           }
         ]
@@ -98,7 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 451.43359375
   },
   "right": {
     "id": "0304a8cc8b15ba67",
@@ -217,41 +217,41 @@
   },
   "active": "b70235b41d249840",
   "lastOpenFiles": [
+    "00-Inbox/Orders as Source of Truth for Webhook Metadata (follow-up).md",
+    "00-Inbox/Things that needs to merged.md",
+    "03-Resources/Persuasive Technology.md",
+    "02-Areas/Ego/Laws to follow to work out things smoother.md",
+    "04-Archives/Anime rating website.md",
+    "00-Inbox/Vector Shift Video Script 2.md",
+    "00-Inbox/Things to do.md",
+    "00-Inbox/Untitled 1.md",
+    "00-Inbox/Vector Shift Video Script.md",
+    "01-Projects/Spaced Revision/Things to do on next prod app (after 30th june).md",
+    "01-Projects/Spaced Revision/Things to do.md",
+    "01-Projects/Spaced Revision/Repo Documentation/Chat Backend.md",
     "01-Projects/Spaced Revision/Repo Documentation/Backend - Main REST API.md",
     "01-Projects/Spaced Revision/Repo Documentation/Analytics - AI Evaluation and Chat.md",
     "01-Projects/Spaced Revision/Repo Documentation/AI Service - Content Generation.md",
     "01-Projects/Spaced Revision/Meta Ads Attribution - Android.md",
     "01-Projects/Spaced Revision/Repo Documentation/Cross-Service Architecture.md",
-    "01-Projects/Spaced Revision/Things to do.md",
     "01-Projects/Spaced Revision/Meta Ads Attribution - Android.md.tmp.7623.e746ea4ce744",
     "00-Inbox/Plan Self study.md",
     "01-Projects/prep/00-Preparation.md",
     "01-Projects/prep/Architectural Flow Diagram.md",
     "01-Projects/prep/Agentic flow diagram.md",
-    "00-Inbox/Untitled 1.md",
     "00-Inbox/Untitled.base",
     "00-Inbox/Untitled 1.base",
     "00-Inbox/Untitled 2.base",
     "01-Projects/Interview prep/Agentic Flow diagram.canvas",
     "01-Projects/Interview prep/Untitled.md",
     "01-Projects/prep/Assumptions of Linear Regression.md",
-    "00-Inbox/Vector Shift Video Script 2.md",
-    "00-Inbox/Vector Shift Video Script.md",
-    "00-Inbox/Things that needs to merged.md",
-    "00-Inbox/Things to do.md",
     "01-Projects/prep",
     "03-Resources/Learning AI/Langgraph/Langchain Vs LangGraph.md",
     "03-Resources/Learning AI/Langgraph",
     "03-Resources/Learning AI",
-    "01-Projects/Spaced Revision/Things to do on next prod app (after 30th june).md",
     "01-Projects/Spaced Revision/Repo Documentation/React Native App.md",
     "01-Projects/Spaced Revision/Repo Documentation/Web Frontend - React.md",
-    "01-Projects/Spaced Revision/Repo Documentation/00 - Repo Documentation Overview.md",
-    "01-Projects/Spaced Revision/Repo Documentation/Chat Backend.md",
     "01-Projects/Spaced Revision/Repo Documentation",
-    "00-Inbox/Persuasive Technology.md",
-    "00-Inbox/Orders as Source of Truth for Webhook Metadata (follow-up).md",
-    "00-Inbox/Laws to follow to work out things smoother.md",
     "00-Inbox",
     "Excalidraw",
     "99-Attachments/FeedBack_Analysis.jpg",
