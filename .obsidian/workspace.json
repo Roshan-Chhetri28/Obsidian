@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Things that needs to merged"
             }
+          },
+          {
+            "id": "906b6c9d6b13b110",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-Inbox/Untitled.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -215,10 +230,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "b70235b41d249840",
+  "active": "906b6c9d6b13b110",
   "lastOpenFiles": [
-    "00-Inbox/Orders as Source of Truth for Webhook Metadata (follow-up).md",
     "00-Inbox/Things that needs to merged.md",
+    "00-Inbox/Untitled.md",
+    "00-Inbox/Orders as Source of Truth for Webhook Metadata (follow-up).md",
     "03-Resources/Persuasive Technology.md",
     "02-Areas/Ego/Laws to follow to work out things smoother.md",
     "04-Archives/Anime rating website.md",
@@ -250,7 +266,6 @@
     "03-Resources/Learning AI/Langgraph",
     "03-Resources/Learning AI",
     "01-Projects/Spaced Revision/Repo Documentation/React Native App.md",
-    "01-Projects/Spaced Revision/Repo Documentation/Web Frontend - React.md",
     "01-Projects/Spaced Revision/Repo Documentation",
     "00-Inbox",
     "Excalidraw",
