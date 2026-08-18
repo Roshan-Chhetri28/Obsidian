@@ -57,3 +57,9 @@ Status:
 	9. Gotcha: Purchase `value` must never come from `iap_purchases.amount` (hardcodes INR) or `courses.price` (catalogue, not charged) — it comes from the client's `priceAmountMicros`/`priceCurrencyCode`
 	10. Known gaps (not blockers): `extinfo` device fields not yet wired from `react-native-device-info` so match quality is weaker than it could be; no test covers the iapService Meta call site; web pixel cohort tagging untouched; iOS entirely out of scope; only ~12 of ~1391 courses carry a UPSC/SPSC tag so cohort reporting covers a fraction of the funnel
 	11. Cleanup: 3 synthetic smoke-test events were sent to the live dataset while verifying (2 `Activated`, 1 `fb_mobile_purchase`, all with unmatchable identities)
+8. QB owner-scoping fix (spaced-revision-sern-backend + spaced-revision-sern-frontend): phase checklist in [[QB Owner Scoping Fix]]
+	1. Another educator's MCQs (author 62 "Pedestal Education") were mapped into course 100037 and count toward the progress denominator — Economics meter stuck at 5/9. Only the **mapped** branch of every query was never owner-scoped; the direct branch already is
+	2. Blast radius is 8 MCQs total (4 in course 100037 topic 4416, 4 in course 2160 topics 3030/3034); 0 cards. All other mappings are owner-authored, so the other ten courses' totals must not move
+	3. **PROD after deploy:** flush `course_progress:*` in Redis (or bump the cache-key prefix) — `analytics.js:91` caches for 300s, so the meter won't move otherwise
+	4. **Security:** `PUT /mcq/assign/:mcq_id/:course_id/:subject_id/:topic_id` (`mcq.js:1379`) is `auth`-only — any logged-in user can map any MCQ into any paid course. That is how the foreign content got in. Being fixed in Phase 2
+	5. Also fixes, same page: "MCQ · Question 97 of 93" counter overrun and the dead whitespace under the last question in the Question Bank list view
