@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Projects/Spaced Revision/QB Owner Scoping Fix.md",
+                "file": "01-Projects/Spaced Revision/Things to do.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "QB Owner Scoping Fix"
+              "title": "Things to do"
             }
           }
         ],
@@ -232,8 +232,8 @@
   },
   "active": "906b6c9d6b13b110",
   "lastOpenFiles": [
-    "01-Projects/Spaced Revision/Meta Ads Attribution - Android.md",
     "01-Projects/Spaced Revision/QB Owner Scoping Fix.md",
+    "01-Projects/Spaced Revision/Meta Ads Attribution - Android.md",
     "00-Inbox/Untitled.md",
     "00-Inbox/Things that needs to merged.md",
     "00-Inbox/Orders as Source of Truth for Webhook Metadata (follow-up).md",
