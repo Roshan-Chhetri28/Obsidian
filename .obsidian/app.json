@@ -3,5 +3,6 @@
   "newFileFolderPath": "00-Inbox",
   "showInlineTitle": true,
   "alwaysUpdateLinks": true,
-  "attachmentFolderPath": "99-Attachments"
+  "attachmentFolderPath": "99-Attachments",
+  "readableLineLength": false
 }
