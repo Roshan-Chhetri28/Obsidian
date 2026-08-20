@@ -10,4 +10,4 @@ Coming to present day I need to:
 - orchestrate LLMs
 - measure generation 
 - compare the algorithms and what not
-and most important of all now I know I am no where at the peak I am on my way steadily but surely
+and most important of all now I know I am no where at the peak I am on my way steadily but surely.
