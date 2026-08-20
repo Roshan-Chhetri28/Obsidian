@@ -30,11 +30,11 @@ The difference isn't the vocabulary. Anyone can learn nouns in a month.
 
 It's the measuring. Back then the question was "does it display". Now it's "is it correct, and how would I know if it wasn't".
 
-I honestly don't know if this is the right time to post this. There's still a long way to go.
+I know I haven't reached the peak yet. There's still a long way to go.
 
 But here I am. And when it does feel like the right time, I'll reshare it and see how long it took.
 
-Even if I haven't reached the peak by then. The more I learn, the further it moves.
+Even if I haven't reached the peak by then., the more I learn, the further it moves.
 
 ---
 
