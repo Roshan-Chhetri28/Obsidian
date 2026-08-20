@@ -14,7 +14,7 @@ Three and a half years ago I built a weather app and genuinely thought I had pea
 
 It was the final project for a Django course. I called a weather API, put the response on a page, wrote some HTML and CSS. The UI was terrible.
 
-But I remember the feeling exactly: I'm integrating someone else's API, I'm designing an interface. This is it. This is what programming is.
+But I remember the feeling exactly: I'm integrating API, I'm designing an interface. This is it. This is what programming is.
 
 It's still on my GitHub. I haven't deleted it.
 
