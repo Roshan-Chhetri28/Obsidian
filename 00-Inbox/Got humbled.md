@@ -5,9 +5,11 @@ Coming to present day I need to:
 - think of chunking strategies
 - chunk
 - embed
-- retrieve
-- measure 
+- retrieve and measure 
 - orchestrate LLMs
 - measure generation 
 - compare the algorithms and what not
 and most important of all now I know I am no where at the peak I am on my way steadily but surely.
+
+I don't even know if this is the right time to share this as a LinkedIn post but here I am.
+Cause there is still a long way to go but in future when I feel this is the time to share this story I will re-share it then and see how long did it take to grow even if i don't reach the peak cause more I learn more the peak shifts
