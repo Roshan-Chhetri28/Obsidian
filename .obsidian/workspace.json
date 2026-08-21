@@ -62,9 +62,23 @@
               "icon": "lucide-file",
               "title": "Why?"
             }
+          },
+          {
+            "id": "0a80afcd016e4662",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-Inbox/Can an AI system develop a persistent internal model of a person's goals without continuously retraining?.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Can an AI system develop a persistent internal model of a person's goals without continuously retraining?"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -248,10 +262,11 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "fedbb2499537e23c",
+  "active": "0a80afcd016e4662",
   "lastOpenFiles": [
-    "01-Projects/Spaced Revision/Meta Ads Attribution - Android.md",
     "00-Inbox/Why?.md",
+    "00-Inbox/Can an AI system develop a persistent internal model of a person's goals without continuously retraining?.md",
+    "01-Projects/Spaced Revision/Meta Ads Attribution - Android.md",
     "01-Projects/Spaced Revision/QB Owner Scoping Fix.md",
     "01-Projects/Spaced Revision/Repo Documentation/Analytics - AI Evaluation and Chat.md",
     "00-Inbox/Got humbled - LinkedIn draft.md",
@@ -277,7 +292,6 @@
     "01-Projects/Spaced Revision/Repo Documentation/AI Service - Content Generation.md",
     "01-Projects/Spaced Revision/Repo Documentation/Cross-Service Architecture.md",
     "01-Projects/Spaced Revision/Meta Ads Attribution - Android.md.tmp.7623.e746ea4ce744",
-    "00-Inbox/Plan Self study.md",
     "00-Inbox/Untitled.base",
     "00-Inbox/Untitled 1.base",
     "00-Inbox/Untitled 2.base",

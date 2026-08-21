@@ -1,0 +1,1 @@
+Can an AI system develop a persistent internal model of a person's goals without continuously retraining?
