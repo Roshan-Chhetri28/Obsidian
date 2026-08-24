@@ -1,35 +1,36 @@
 
-| Date        | Company Name                         | Method                                         | Outreached                                             | Status  | Notes                    |
-| ----------- | ------------------------------------ | ---------------------------------------------- | ------------------------------------------------------ | ------- | ------------------------ |
-| 2026-08-06  | (Gemini role - Bangalore)            | LinkedIn DM → AI Engineer (Gemini)             | Dhanashree Gupta                                       | Applied |                          |
-| 2026-08-06  | Creative Hands HR                    | WhatsApp → AI/ML Engineer                      | Ruchita 9514166619                                     | Applied |                          |
-| 2026-08-06  | Teamware Solutions                   | LinkedIn DM → Full Stack AI Developer          | Triveni P                                              | Applied |                          |
-| 2026-08-06  | Teamware Solutions (capital markets) | LinkedIn DM                                    | Akshaya Krishna                                        | Applied |                          |
-| 2026-08-06  | Simbian                              | Pre-screening form → Applied AI Engineer       | —                                                      | Applied |                          |
-| 2026-08-06  | Flexday AI                           | LinkedIn InMail → AI Engineer (India)          | Prateek Gummaraju (recent hire)                        | Applied |                          |
-| 2026-08-07  | Parsewave                            | Website form → Benchmark contributor           | Ivan Kudryavtsev (founder)                             | Applied |                          |
-| 2026-08-07  | Cophil Consulting                    | Job board → AI Engineer                        | —                                                      | Applied |                          |
-| 2026-08-08  | Siemens Energy                       | Job board + cover letter → AI Engineer (GenAI) | —                                                      | Applied |                          |
-| ~Aug 17-24  | Unico Connect                        | Applied → Company careers page                 | LinkedIn → Shaun Sebi Kollannur                        | Applied |                          |
-| ~Aug 17-24  | Anteriad                             | Applied → Company job listing                  | —                                                      | Applied |                          |
-| ~Aug 17-24  | SwarmLens                            | Applied → SwarmLens job listing                | LinkedIn → Reshma Nair                                 | Applied |                          |
-| ~Aug 17-24  | Hirist — Junior AI Backend Engineer  | Applied → Hirist                               | —                                                      | Applied |                          |
-| ~Aug 17-24  | LearnTube.ai                         | Applied → LearnTube.ai job listing             | —                                                      | Applied |                          |
-| ~Aug 17-24  | Movate                               | Applied → Movate job listing                   | LinkedIn → Vishok M                                    | Applied |                          |
-| ~Aug 17-24  | Infosys                              | Applied → Infosys job listing                  | —                                                      | Applied |                          |
-| ~Aug 17-24  | MyAdvice                             | Applied → MyAdvice job listing                 | —                                                      | Applied |                          |
-| ~Aug 17-24  | Sky Systems                          | Applied → Sky Systems job listing              | —                                                      | Applied |                          |
-| ~Aug 17-24  | iDreamCareer                         | Applied → Cutshort                             | LinkedIn → Shivani Rajput                              | Applied |                          |
-| ~Aug 17-24  | Happiest Minds                       | Applied → Happiest Minds job listing           | —                                                      | Applied |                          |
-| ~Aug 17-24  | Lexi                                 | Applied → Lexi application                     | LinkedIn → Harshit Garg                                | Applied |                          |
-| ~Aug 17-24  | Grey Chain AI                        | Applied → Grey Chain AI job listing            | LinkedIn → Deebaj Mir                                  | Applied |                          |
-| ~Aug 17-24  | Ideas to Impacts Innovation          | Applied → Cutshort → Philip Pawar              | LinkedIn → Shrushti Khobragade                         | Applied |                          |
-| ~Aug 17-24  | Captiks                              | Email → hello@capticks.com                     | Email → Captiks                                        | Emailed |                          |
-| ~Aug 17-24  | FirstCron                            | Email → sunil.mote@firstcron.com               | Email → Sunil Mote                                     | Emailed |                          |
-| ~Aug 17-24  | Grambvels AI                         | Email → kaushal@grambvels.ai                   | Email → Kaushal                                        | Emailed |                          |
-| ~Aug 17-24  | Valura                               | Email → careers@valura.ai                      | Email → Valura Recruitment                             | Emailed |                          |
-| ~Aug 17-24  | Chinmay Finlease                     | Email → tushar.soni@chinmayfinlease.com        | Email → Tushar Soni                                    | Emailed |                          |
-| ~Aug 17-24  | Applied Data Finance                 | Applied → Wellfound job listing                | —                                                      | Applied |                          |
-| ~Aug 17-24  | Glanceit.ai                          | Applied → LinkedIn job posting                 | —                                                      | Applied |                          |
-| ~2026-08-24 | TMLC — The Machine Learning Company  | Applied → TMLC careers page                    | LinkedIn → Saurabh Shahane (InMail credit unavailable) | Applied | Email → careers@tmlc.in  |
-| ~2026-08-24 | Senzcraft                            | Applied → Senzcraft job listing                | LinkedIn → Pravin Kumar M (InMail credit unavailable)  | Applied | Email → hr@senzcraft.com |
+| Date        | Company Name                         | Method                                         | Outreached                                             | Status  | Notes                         |
+| ----------- | ------------------------------------ | ---------------------------------------------- | ------------------------------------------------------ | ------- | ----------------------------- |
+| 2026-08-06  | (Gemini role - Bangalore)            | LinkedIn DM → AI Engineer (Gemini)             | Dhanashree Gupta                                       | Applied |                               |
+| 2026-08-06  | Creative Hands HR                    | WhatsApp → AI/ML Engineer                      | Ruchita 9514166619                                     | Applied |                               |
+| 2026-08-06  | Teamware Solutions                   | LinkedIn DM → Full Stack AI Developer          | Triveni P                                              | Applied |                               |
+| 2026-08-06  | Teamware Solutions (capital markets) | LinkedIn DM                                    | Akshaya Krishna                                        | Applied |                               |
+| 2026-08-06  | Simbian                              | Pre-screening form → Applied AI Engineer       | —                                                      | Applied |                               |
+| 2026-08-06  | Flexday AI                           | LinkedIn InMail → AI Engineer (India)          | Prateek Gummaraju (recent hire)                        | Applied |                               |
+| 2026-08-07  | Parsewave                            | Website form → Benchmark contributor           | Ivan Kudryavtsev (founder)                             | Applied |                               |
+| 2026-08-07  | Cophil Consulting                    | Job board → AI Engineer                        | —                                                      | Applied |                               |
+| 2026-08-08  | Siemens Energy                       | Job board + cover letter → AI Engineer (GenAI) | —                                                      | Applied |                               |
+| ~Aug 17-24  | Unico Connect                        | Applied → Company careers page                 | LinkedIn → Shaun Sebi Kollannur                        | Applied |                               |
+| ~Aug 17-24  | Anteriad                             | Applied → Company job listing                  | —                                                      | Applied |                               |
+| ~Aug 17-24  | SwarmLens                            | Applied → SwarmLens job listing                | LinkedIn → Reshma Nair                                 | Applied |                               |
+| ~Aug 17-24  | Hirist — Junior AI Backend Engineer  | Applied → Hirist                               | —                                                      | Applied |                               |
+| ~Aug 17-24  | LearnTube.ai                         | Applied → LearnTube.ai job listing             | —                                                      | Applied |                               |
+| ~Aug 17-24  | Movate                               | Applied → Movate job listing                   | LinkedIn → Vishok M                                    | Applied |                               |
+| ~Aug 17-24  | Infosys                              | Applied → Infosys job listing                  | —                                                      | Applied |                               |
+| ~Aug 17-24  | MyAdvice                             | Applied → MyAdvice job listing                 | —                                                      | Applied |                               |
+| ~Aug 17-24  | Sky Systems                          | Applied → Sky Systems job listing              | —                                                      | Applied |                               |
+| ~Aug 17-24  | iDreamCareer                         | Applied → Cutshort                             | LinkedIn → Shivani Rajput                              | Applied |                               |
+| ~Aug 17-24  | Happiest Minds                       | Applied → Happiest Minds job listing           | —                                                      | Applied |                               |
+| ~Aug 17-24  | Lexi                                 | Applied → Lexi application                     | LinkedIn → Harshit Garg                                | Applied |                               |
+| ~Aug 17-24  | Grey Chain AI                        | Applied → Grey Chain AI job listing            | LinkedIn → Deebaj Mir                                  | Applied |                               |
+| ~Aug 17-24  | Ideas to Impacts Innovation          | Applied → Cutshort → Philip Pawar              | LinkedIn → Shrushti Khobragade                         | Applied |                               |
+| ~Aug 17-24  | Captiks                              | Email → hello@capticks.com                     | Email → Captiks                                        | Emailed |                               |
+| ~Aug 17-24  | FirstCron                            | Email → sunil.mote@firstcron.com               | Email → Sunil Mote                                     | Emailed |                               |
+| ~Aug 17-24  | Grambvels AI                         | Email → kaushal@grambvels.ai                   | Email → Kaushal                                        | Emailed |                               |
+| ~Aug 17-24  | Valura                               | Email → careers@valura.ai                      | Email → Valura Recruitment                             | Emailed |                               |
+| ~Aug 17-24  | Chinmay Finlease                     | Email → tushar.soni@chinmayfinlease.com        | Email → Tushar Soni                                    | Emailed |                               |
+| ~Aug 17-24  | Applied Data Finance                 | Applied → Wellfound job listing                | —                                                      | Applied |                               |
+| ~Aug 17-24  | Glanceit.ai                          | Applied → LinkedIn job posting                 | —                                                      | Applied |                               |
+| ~2026-08-24 | TMLC — The Machine Learning Company  | Applied → TMLC careers page                    | LinkedIn → Saurabh Shahane (InMail credit unavailable) | Applied | Email → careers@tmlc.in       |
+| ~2026-08-24 | Senzcraft                            | Applied → Senzcraft job listing                | LinkedIn → Pravin Kumar M (InMail credit unavailable)  | Applied | Email → hr@senzcraft.com      |
+| ~2026-08-24 | GIVA                                 | Applied → AI Engineer 1 listing                | LinkedIn → Aditya Labroo (InMail credit unavailable)   | Applied | Email → rakesh@giva.co — Sent |
