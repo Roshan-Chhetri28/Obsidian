@@ -19,3 +19,5 @@
 | Grambvels AI                        | Email → kaushal@grambvels.ai            | Email → Kaushal                 | Emailed |
 | Valura                              | Email → careers@valura.ai               | Email → Valura Recruitment      | Emailed |
 | Chinmay Finlease                    | Email → tushar.soni@chinmayfinlease.com | Email → Tushar Soni             | Emailed |
+| Applied Data Finance                | Applied → Wellfound job listing         | —                               | Applied |
+| Glanceit.ai                         | Applied linked in job posting           | __                              | Applied |
