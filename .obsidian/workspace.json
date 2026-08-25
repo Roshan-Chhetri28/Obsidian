@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Places i have applied to"
             }
+          },
+          {
+            "id": "05592bfda7560d46",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-Inbox/EY Telephony.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "EY Telephony"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -80,7 +95,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 451.43359375
+    "width": 451.43359375,
+    "collapsed": true
   },
   "right": {
     "id": "0304a8cc8b15ba67",
@@ -207,9 +223,10 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "d53d78eef50d18d7",
+  "active": "05592bfda7560d46",
   "lastOpenFiles": [
     "00-Inbox/Places i have applied to.md",
+    "00-Inbox/EY Telephony.md",
     "00-Inbox/Things that needs to merged.md",
     "01-Projects/Spaced Revision/Repo Documentation/Chat Backend.md",
     "01-Projects/Spaced Revision/Meta Ads Attribution - Android.md",
@@ -235,7 +252,6 @@
     "03-Resources/Persuasive Technology.md",
     "02-Areas/Ego/Laws to follow to work out things smoother.md",
     "04-Archives/Anime rating website.md",
-    "01-Projects/Spaced Revision/Repo Documentation/AI Service - Content Generation.md",
     "01-Projects/Spaced Revision/Meta Ads Attribution - Android.md.tmp.7623.e746ea4ce744",
     "00-Inbox/Untitled.base",
     "00-Inbox/Untitled 1.base",
